@@ -3,17 +3,17 @@ public class Corredores {
     String nacionalidad;
     String nombre;
     String apellido;
-    int edad;
+    int numero;
     int peso;
     float estatura;
 
 
     //Constructor
-    public Corredores(String nacionalidad, String nombre, String apellido, int edad, int peso, float estatura){
+    public Corredores(String nacionalidad, String nombre, String apellido, int numero, int peso, float estatura){
         this.nacionalidad = nacionalidad;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.edad = edad;
+        this.numero = numero;
         this.peso = peso;
         this.estatura = estatura;
     }
@@ -32,8 +32,8 @@ public class Corredores {
         return apellido;
     }
 
-    public int getEdad() {
-        return edad;
+    public int getNumero() {
+        return numero;
     }
 
     public int getPeso() {
@@ -58,8 +58,8 @@ public class Corredores {
         this.apellido = apellido;
     }
 
-    public void setEdad(int edad) {
-        this.edad = edad;
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
     public void setPeso(int peso) {
