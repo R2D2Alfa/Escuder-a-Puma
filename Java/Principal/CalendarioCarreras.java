@@ -24,15 +24,15 @@ public class CalendarioCarreras {
         return Carrera;
     }
 
-    public void setFechaInicio(){
-
+    public void setFechaInicio(String FechaInicio){
+        this.FechaInicio = FechaInicio;
     }
 
-    public void setFechaFinal(){
-
+    public void setFechaFinal(String FechaFinal){
+        this.FechaFinal = FechaFinal;
     }
 
-    public void setCarrera(){
-
+    public void setCarrera(String Carrera){
+        this.Carrera = Carrera;
     }
 }
