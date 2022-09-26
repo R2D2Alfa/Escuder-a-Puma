@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashSet;
 
+
 public class Iniciar {
     public static void iniciarPistas(){
         ArrayList<Pistas> pistas = new ArrayList<>();
