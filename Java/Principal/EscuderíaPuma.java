@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class EscuderíaPuma {
     public static void main(String[] args){
-        Scanner sn = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         boolean salir = false, salircamp = false;
         int principal, campeonato; 
         System.out.println("         ################# #####");
@@ -22,7 +22,7 @@ public class EscuderíaPuma {
             System.out.println("1.- Crear un campeonato nuevo");
             System.out.println("2.- Ver pilotos actuales y campeonatos anteriores");
             System.out.println("3.- Salir");
-            principal = sn.nextInt();
+            principal = sc.nextInt();
             switch (principal){
                 case 1:
                     while(!salircamp){
@@ -31,7 +31,7 @@ public class EscuderíaPuma {
                         System.out.println("2.- Crear corredores");
                         System.out.println("3.- Crear pistas");
                         System.out.println("4.- Salir");
-                        campeonato = sn.nextInt();
+                        campeonato = sc.nextInt();
                         switch (campeonato){
                             case 1:
                                 
