@@ -6,6 +6,9 @@ public class EscuderíaPuma {
         Scanner sc = new Scanner(System.in);
         boolean salir = false, salircamp = false;
         int principal, campeonato; 
+        String ciudad, pais;
+        float longitud;
+        ArrayList<Pistas> pistas = new ArrayList<>();
         System.out.println("         ################# #####");
         System.out.println("      ################### #####");
         System.out.println("     #####               #####");
@@ -40,7 +43,14 @@ public class EscuderíaPuma {
 
                             break;
                             case 3:
-
+                                System.out.println("Ingrese el país donde se desempeñará la carrera");
+                                pais = sc.nextLine();
+                                System.out.println("Ingrese la ciudad cede de la carrera");
+                                ciudad = sc.nextLine();
+                                System.out.println("Ingrese el procesador de la computadora");
+                                longitud = sc.nextFloat();
+                                Pistas nuevapista = new Pistas(pais, ciudad, longitud);
+                                pistas.add(nuevapista);
                             break;
                             case 4:
 
@@ -49,7 +59,7 @@ public class EscuderíaPuma {
                     }
                 break;
                 case 2:
-                    System.out.println("4.- Salir");
+                    
                 break;
                 case 3:
                     salir = true;
