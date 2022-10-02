@@ -1,45 +1,91 @@
-public class CalendarioCarreras {
-    Fecha FechaInicio = new Fecha();
-    Fecha FechaFinal = new Fecha();
-    String Carrera;
+//Ajuste para mejorar la forma de manejar las fechas
+import java.time.LocalDate;
+import java.util.Scanner;
 
-    public CalendarioCarreras(Fecha FechaInicio, Fecha FechaFinal, String Carrera){
-        this.FechaInicio = FechaInicio;
-        this.FechaFinal = FechaFinal;
-        this.Carrera = Carrera;
+
+public class CalendarioCarreras{
+    //Atributos
+    String carrera;
+    LocalDate fechainicio;
+    LocalDate fechafinal;
+    
+
+    //Constructor
+    public CalendarioCarreras(String carrera, String fechainicio, String fechafinal){
+        //Se convierte las fechas ingresadas
+        LocalDate fechainicio_convert = LocalDate.parse(fechainicio);
+        LocalDate fechafinal_convert = LocalDate.parse(fechafinal);
+
+        //Se asignan las fechas convertidas en conjunto a la carrera
+        this.carrera = carrera;
+        this.fechainicio = fechainicio_convert;
+        this.fechafinal = fechafinal_convert;
     }
 
-    public Fecha getFechaInicio(){
-        return FechaInicio;
+
+    //Getters
+    public String getCarrera() {
+        return carrera;
     }
 
-    public Fecha getFechaFinal(){
-        return FechaFinal;
+
+    public LocalDate getFechainicio(){
+        return fechainicio;
     }
 
-    public String getCarrera(){
-        return Carrera;
+
+    public LocalDate getFechafinal() {
+        return fechafinal;
     }
 
-    public void setFechaInicio(Fecha FechaInicio){
-        this.FechaInicio = FechaInicio;
+
+    //Setters
+    public void setCarrera(String carrera) {
+        this.carrera = carrera;
     }
 
-    public void setFechaFinal(Fecha FechaFinal){
-        this.FechaFinal = FechaFinal;
+
+    public void setFechainicio(String fechainicio) {
+        LocalDate fechainicio_convert = LocalDate.parse(fechainicio);
+        this.fechainicio = fechainicio_convert;
     }
 
-    public void setCarrera(String Carrera){
-        this.Carrera = Carrera;
+
+    public void setFechafinal(String fechafinal) {
+        LocalDate fechafinal_convert = LocalDate.parse(fechafinal);
+        this.fechafinal = fechafinal_convert;
     }
 
-    public static void main(String[] args){ // Propuesta de uso.
-        Fecha Fecha1 = new Fecha(12, 12, 2022);
-        Fecha Fecha2 = new Fecha(24, 12, 2022);
-        CalendarioCarreras Carrera1 = new CalendarioCarreras(Fecha1, Fecha2, "NOMBRE CARERRA");
 
-        System.out.println("La Carrera " + Carrera1.getCarrera());
-        System.out.println("Se disputara en las fechas: " + Carrera1.getFechaFinal() + " y " + Carrera1.getFechaInicio());
+    //Metodos adicionales
+    public static CalendarioCarreras crearCalendarioCarrera(){
+        Scanner sc = new Scanner(System.in);
 
+        System.out.println("\n\t[ Creacion del calendario para la carrera ]");
+
+        System.out.print("\nIngrese la carrera de la cual se designara la fecha: ");
+        String carrera = sc.nextLine();
+
+        System.out.print("\nIngrese fecha de inicio de la forma (aaaa-mm-dd)");
+        String inicio = sc.nextLine();
+
+        System.out.print("\nIngrese fecha de fin de la forma (aaaa-mm-dd)");
+        String fin = sc.nextLine();
+
+        CalendarioCarreras carrera_calendario = new CalendarioCarreras(carrera, inicio, fin);
+
+        return carrera_calendario;
+    }
+
+
+    public void verfechacarrera(){
+
+        System.out.println("\n\t[ Calendario de la carrera]");
+
+        System.out.print("\nCarrera: "+this.getCarrera());
+
+        System.out.print("\nLa carrera inicia el: "+this.getFechainicio()+" y termina el: "+this.getFechafinal());
+
+        System.out.print("\n\tBuena suerte a todos los participantes :)");
     }
 }
