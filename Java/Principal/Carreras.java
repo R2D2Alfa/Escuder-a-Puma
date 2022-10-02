@@ -9,7 +9,6 @@ public class Carreras {
     Pistas pista;
     LinkedList<Escuderias> escuderias;
 
-
     //Consturctor
     public Carreras(String nombre_carrera, CalendarioCarreras fecha_carrera, Pistas pista, LinkedList<Escuderias> escuderias){
         this.nombre_carrera = nombre_carrera;
@@ -17,7 +16,6 @@ public class Carreras {
         this.pista = pista;
         this.escuderias = escuderias;
     }
-
 
     //Getters
     public String getNombre_carrera() {
@@ -29,37 +27,30 @@ public class Carreras {
         return fecha_carrera;
     }
 
-
     public Pistas getPista() {
         return pista;
     }
 
-
     public LinkedList<Escuderias> getEscuderias() {
         return escuderias;
     }
-
 
     //Setters
     public void setNombre_carrera(String nombre_carrera) {
         this.nombre_carrera = nombre_carrera;
     }
 
-
     public void setFecha_carrera(CalendarioCarreras fecha_carrera) {
         this.fecha_carrera = fecha_carrera;
     }
-
 
     public void setPista(Pistas pista) {
         this.pista = pista;
     }
 
-
     public void setEscuderias(LinkedList<Escuderias> escuderias) {
         this.escuderias = escuderias;
     }
-
 
     //Metodos adicionales
     public static Carreras crearCarrera(){
