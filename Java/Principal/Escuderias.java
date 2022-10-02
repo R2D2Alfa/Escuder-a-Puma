@@ -48,7 +48,7 @@ public class Escuderias {
 
         LinkedList<Corredores> corredores = new LinkedList<>();
 
-        for(int i=0; i<2; i++){
+        for(int i=0; i<2; i++){  //2 Corredores en la creación de la escuderia
             Corredores corredor = Corredores.crearCorredor();
             corredores.add(corredor);
         }
