@@ -1,23 +1,23 @@
-\documentclass[12pt, letterpaper]{article} % [Tamaño de la fuente, Tamaño del papel]
+\documentclass[12pt, letterpaper]{article} % [Tamano de la fuente, Tamano del papel]
 
-% Tamaño de la página y márgenes.
+% Tamano de la pagina y margenes.
 \usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
 
-% packages útiles
+% packages utiles
 \usepackage{amsmath}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 \usepackage{graphicx}
 \graphicspath{{imagenes\}}} % Direccion de las imagenes
 \usepackage{listings}
 
-% Información del documento
+% Informacion del documento
 \title{Colecciones en Java}
 \author{Equipo 11}
 \date{¿? de Octubre de 2022}
 
 % Texto del documento
 \begin{document}
-\maketitle % Permite la apación de la información del documento
+\maketitle % Permite la apacion de la informacion del documento
 
 % Nota Negritas: \textbf{greatest}
 %      Subrayar: \underline{science} 
@@ -25,41 +25,41 @@
 
 \textbf{Integrantes:}
 \begin{itemize}
-    \item Alfaro Domínguez Arturo.
+    \item Alfaro Dominguez Arturo.
     \item Herrera Lezama Fabricio Daniel.
-    \item López González Erick.
+    \item Lopez Gonzalez Erick.
 \end{itemize}
 
-\section*{¿Qué son las colecciones?}
-Las colecciones representan un grupo de objetos, estos objetos son conocidos como elementos, cuando se necesita trabajar con un conjunto de elementos, se necesita de un contenedor o almacén para guardarlos. En Java se proporciona la interfaz Collection, dicha interfaz permite almacenar cualquier tipo de objeto, como también, es posible usar ciertos métodos para su manipulación, tales como: añadir, eliminar, conocer el tamaño de la colección, etc. 
+\section*{¿Que son las colecciones?}
+Las colecciones representan un grupo de objetos, estos objetos son conocidos como elementos, cuando se necesita trabajar con un conjunto de elementos, se necesita de un contenedor o almacen para guardarlos. En Java se proporciona la interfaz Collection, dicha interfaz permite almacenar cualquier tipo de objeto, como tambien, es posible usar ciertos metodos para su manipulacion, tales como: anadir, eliminar, conocer el tamano de la coleccion, etc. 
 
-\section*{¿Qué es un marco de recopilación de Java?}
+\section*{¿Que es un marco de recopilacion de Java?}
 
-Un marco de recopilación de Java proporciona una arquitectura para almacenar y manipular un grupo de objetos. Un marco de recopilación de Java incluye lo siguiente:
+Un marco de recopilacion de Java proporciona una arquitectura para almacenar y manipular un grupo de objetos. Un marco de recopilacion de Java incluye lo siguiente:
 
 \begin{itemize}
-    \item \textbf{Interfaces:} Una interfaz en Java se refiere como tal a los tipos de datos abstractos, permitiendo manipular las colecciones de Java independientemente de los detalles de su representación. Como también, forman una jerarquía en los lenguajes de programación con el paradigma orientado a objetos.
-    \item \textbf{Clases:} Las clases para Java son la implementación de la interfaz de colección, es decir, las estructuras de datos que se utilizan.
-    \item \textbf{Algoritmo:} Se refiere a los métodos que utilizan para realizar operaciones como búsqueda y clasificación en objetos que se implementan en las interfaces de colección.
+    \item \textbf{Interfaces:} Una interfaz en Java se refiere como tal a los tipos de datos abstractos, permitiendo manipular las colecciones de Java independientemente de los detalles de su representacion. Como tambien, forman una jerarquia en los lenguajes de programacion con el paradigma orientado a objetos.
+    \item \textbf{Clases:} Las clases para Java son la implementacion de la interfaz de coleccion, es decir, las estructuras de datos que se utilizan.
+    \item \textbf{Algoritmo:} Se refiere a los metodos que utilizan para realizar operaciones como busqueda y clasificacion en objetos que se implementan en las interfaces de coleccion.
 \end{itemize}
 
-El marco de recopilación de Java proporciona a los desarrolladores el acceso a estructuras de datos pre empaquetadas, así como a algoritmos para manipular datos.
+El marco de recopilacion de Java proporciona a los desarrolladores el acceso a estructuras de datos pre empaquetadas, asi como a algoritmos para manipular datos.
 
-\section*{Modelo de la jerarquía de colecciones en Java}
-En el paquete de utilidades de Java (java.util) contiene todas las clases e interfaces que requiere el marco de la colección. El marco de la colección contiene una interfaz denominada interfaz iterable que proporciona el iterador para iterar a través de todas las colecciones. Esta interfaz se amplía con la interfaz de recopilación principal, que actúa como raíz del marco de recopilación. Todas las colecciones amplían esta interfaz de colección ampliando así las propiedades del iterador y los métodos de esta interfaz.
+\section*{Modelo de la jerarquia de colecciones en Java}
+En el paquete de utilidades de Java (java.util) contiene todas las clases e interfaces que requiere el marco de la coleccion. El marco de la coleccion contiene una interfaz denominada interfaz iterable que proporciona el iterador para iterar a traves de todas las colecciones. Esta interfaz se amplia con la interfaz de recopilacion principal, que actua como raiz del marco de recopilacion. Todas las colecciones amplian esta interfaz de coleccion ampliando asi las propiedades del iterador y los metodos de esta interfaz.
 
-A continuación se presenta el diagrama que ilustra la jerarquía de colecciones en Java:
+A continuacion se presenta el diagrama que ilustra la jerarquia de colecciones en Java:
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.75\textwidth]{imagenes/Jerarquia de colecciones Java.png}
-    \caption{Pie de página.}
+    \caption{Pie de pagina.}
     \label{fig:jerarquia}
 \end{figure}
 
-Con el diagrama presentado, podemos observar cada una de las interfaces y clases que se conforman en dicha jerarquía. Como siguiente se procederá a explicar en detalle  las clases presentadas, sus métodos principales, sus diferencias entre ellas y los aspectos más relevantes al momento de elegir alguno de ellos.
+Con el diagrama presentado, podemos observar cada una de las interfaces y clases que se conforman en dicha jerarquia. Como siguiente se procedera a explicar en detalle  las clases presentadas, sus metodos principales, sus diferencias entre ellas y los aspectos mas relevantes al momento de elegir alguno de ellos.
 
 \section{Colecciones de Java: Lista (List)}
-Para el apartado de la lista, tenemos que una lista es una colección ordenada de elementos que pueden contener en ellos elementos duplicados. Es una interfaz que amplía la interfaz de colección, dichas listas se clasifican además en lo siguiente:
+Para el apartado de la lista, tenemos que una lista es una coleccion ordenada de elementos que pueden contener en ellos elementos duplicados. Es una interfaz que amplia la interfaz de coleccion, dichas listas se clasifican ademas en lo siguiente:
 
 \begin{enumerate}
     \item Lista de arreglo (Array List)
@@ -69,37 +69,37 @@ Para el apartado de la lista, tenemos que una lista es una colección ordenada d
 
 
 \section*{Lista de arreglo (Array List)}
-Lista de arreglo o Array List es la implementación de List Interface donde los elementos se pueden agregar o eliminar de forma dinámica en la lista. A su vez, el tamaño de la lista aumenta dinámicamente si los elementos se agregan más que el tamaño que posee en un inicio.
+Lista de arreglo o Array List es la implementacion de List Interface donde los elementos se pueden agregar o eliminar de forma dinamica en la lista. A su vez, el tamano de la lista aumenta dinamicamente si los elementos se agregan mas que el tamano que posee en un inicio.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.75\textwidth]{imagenes/Ejemplo Grafico ArrayList.png}
-    \caption{Pie de página.}
+    \caption{Pie de pagina.}
     \label{fig:ejemploarraylist}
 \end{figure}
 
 \section*{Forma para crear un Array List}
-Se debe tomar en cuenta que para su creación se debe importar la biblioteca:
+Se debe tomar en cuenta que para su creacion se debe importar la biblioteca:
 
 \begin{center}
     import java.util.ArrayList;
 \end{center}
 
-A continuación se presenta la forma para declarar un ArrayList:
+A continuacion se presenta la forma para declarar un ArrayList:
 \begin{center}
-    \(ArrayList<Tipo de dato]> [Identificador] = new ArrayList<Tipo de dato]>(Tamaño);\)
+    \(ArrayList<Tipo de dato]> [Identificador] = new ArrayList<Tipo de dato]>(Tamano);\)
 \end{center}
 
 Donde se tiene que:
 \begin{itemize}
-    \item \textbf{Tipo de dato:} se definirá el tipo de dato contendrá cada uno de los elementos del ArrayList.
-    \item \textbf{Identificador:} se definirá su nombre.
-    \item \textbf{Tamaño:} se le designará el tamaño que tendrá.
+    \item \textbf{Tipo de dato:} se definira el tipo de dato contendra cada uno de los elementos del ArrayList.
+    \item \textbf{Identificador:} se definira su nombre.
+    \item \textbf{Tamano:} se le designara el tamano que tendra.
 \end{itemize}
 
-\section*{Métodos principales en Array List}
+\section*{Metodos principales en Array List}
 \begin{itemize}
-    \item \textbf{add():} Añade un elemento a el ArrayList, de forma que este se añade hasta el final. Como parámetro se le da el elemento a insertar.
+    \item \textbf{add():} Anade un elemento a el ArrayList, de forma que este se anade hasta el final. Como parametro se le da el elemento a insertar.
     
     Ejemplo:
     \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
@@ -111,7 +111,7 @@ Donde se tiene que:
     al.add("Elena");
     \end{lstlisting}
     
-    \item \textbf{remove():} Borra un elemento del ArrayList. Como parámetro se envía el índice del elemento a borrar.
+    \item \textbf{remove():} Borra un elemento del ArrayList. Como parametro se envia el indice del elemento a borrar.
     
     Ejemplo:
     \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
@@ -141,7 +141,7 @@ Donde se tiene que:
     al.clear();
     \end{lstlisting}
     
-    \item \textbf{size():} Nos devuelve el tamaño o número de elementos del ArrayList.
+    \item \textbf{size():} Nos devuelve el tamano o numero de elementos del ArrayList.
     
     Ejemplo:
     \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
@@ -157,7 +157,7 @@ Donde se tiene que:
     System.out.println("Tamano de la lista = "+ arrlist.size());
     \end{lstlisting}
     
-    \item \textbf{isEmpty():} Verifica si una lista está vacía o no. Devuelve verdadero si la lista no contiene elementos; de lo contrario, devuelve falso si la lista contiene algún elemento.
+    \item \textbf{isEmpty():} Verifica si una lista esta vacia o no. Devuelve verdadero si la lista no contiene elementos; de lo contrario, devuelve falso si la lista contiene algun elemento.
     
     Ejemplo:
     \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
@@ -173,7 +173,7 @@ Donde se tiene que:
     }
     \end{lstlisting}
 
-    \item \textbf{indexOf():} Nos devuelve el índice de la primera aparición del elemento especificado en el ArrayList, o -1 si no se contiene el elemento. Como parámetro se envía el elemento a buscar dentro del ArrayList.
+    \item \textbf{indexOf():} Nos devuelve el indice de la primera aparicion del elemento especificado en el ArrayList, o -1 si no se contiene el elemento. Como parametro se envia el elemento a buscar dentro del ArrayList.
     
     Ejemplo:
     \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
@@ -190,7 +190,7 @@ Donde se tiene que:
     System.out.println("El elemento 3 se encuentra en el indice : " + posicion);
     \end{lstlisting}
 
-    \item \textbf{get():} Nos devuelve el elemento en el índice indicado. Como parámetro se le da el índice del elemento que queremos.
+    \item \textbf{get():} Nos devuelve el elemento en el indice indicado. Como parametro se le da el indice del elemento que queremos.
     
     Ejemplo:
     \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
@@ -206,7 +206,7 @@ Donde se tiene que:
 \end{itemize}
 
 \section*{Lista enlazada (Linked List)}
-La lista vinculada o Linked List, es una secuencia de vínculos que contiene elementos. Cada enlace contiene una conexión a otro enlace.
+La lista vinculada o Linked List, es una secuencia de vinculos que contiene elementos. Cada enlace contiene una conexion a otro enlace.
 
 La clase LinkedList en Java utiliza 2 tipos de listas vinculadas para almacenar los elementos:
 \begin{enumerate}
@@ -214,7 +214,7 @@ La clase LinkedList en Java utiliza 2 tipos de listas vinculadas para almacenar 
     \begin{figure}[h]
         \centering
         \includegraphics[width=0.75\textwidth]{imagenes/Lista individualmente vinculada.png}
-        \caption{Pie de página.}
+        \caption{Pie de pagina.}
         \label{fig:individual}
     \end{figure}
 
@@ -222,35 +222,35 @@ La clase LinkedList en Java utiliza 2 tipos de listas vinculadas para almacenar 
     \begin{figure}[h]
         \centering
         \includegraphics[width=0.75\textwidth]{imagenes/Lista doblemente enlazada.png}
-        \caption{Pie de página.}
+        \caption{Pie de pagina.}
         \label{fig:doblemente}
     \end{figure}
 
 \end{enumerate}
 
 \section*{Forma para crear un LinkedList}
-Se debe tomar en cuenta que para su creación se debe importar la biblioteca:
+Se debe tomar en cuenta que para su creacion se debe importar la biblioteca:
 
 \begin{center}
     import java.util.LinkedList;
 \end{center}
-A continuación se presenta la forma para declarar un LinkedList:
+A continuacion se presenta la forma para declarar un LinkedList:
 
 \begin{center}
-    $LinkedList<[Tipo de dato]> [Identificador] = new LinkedList<[Tipo de dato]>([Tamaño]);$
+    $LinkedList<[Tipo de dato]> [Identificador] = new LinkedList<[Tipo de dato]>([Tamano]);$
 \end{center}
 Donde se tiene que:
 \begin{itemize}
-    \item \textbf{Tipo de dato:} se definirá el tipo de dato contendrá cada uno de los elementos de la LinkedList.
-    \item \textbf{Identificador:} se definirá su nombre.
-    \item \textbf{Tamaño:} se le designará el tamaño que tendrá.
+    \item \textbf{Tipo de dato:} se definira el tipo de dato contendra cada uno de los elementos de la LinkedList.
+    \item \textbf{Identificador:} se definira su nombre.
+    \item \textbf{Tamano:} se le designara el tamano que tendra.
 \end{itemize}
 
-\section*{Métodos principales en Linked List}
+\section*{Metodos principales en Linked List}
 \begin{itemize}
     \item \textbf{add(Objeto):} Nos permite agregar un elemento al final de LinkedList.
     
-    \item \textbf{add(int index, Object):} Permite agregar un elemento en un índice en específico en LinkedList.
+    \item \textbf{add(int index, Object):} Permite agregar un elemento en un indice en especifico en LinkedList.
     
     \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
     Ejemplo:
@@ -261,7 +261,7 @@ Donde se tiene que:
     LL.add(1, "Mundo");
     \end{lstlisting}
     
-    \item \textbf{get():} Nos permite buscar o recuperar un elemento de un índice en específico de LinkedList. Como parámetros se le da el índice del elemento que deseamos obtener. Este retorna el elemento encontrado en esa posición.
+    \item \textbf{get():} Nos permite buscar o recuperar un elemento de un indice en especifico de LinkedList. Como parametros se le da el indice del elemento que deseamos obtener. Este retorna el elemento encontrado en esa posicion.
     
     Ejemplo:
     \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
@@ -273,10 +273,10 @@ Donde se tiene que:
     list.add(" una prueba");
     list.add(" 10");
 
-    System.out.println("El elemento en la posición 2 es: "+ list.get(2));
+    System.out.println("El elemento en la posicion 2 es: "+ list.get(2));
     \end{lstlisting}
     
-    \item \textbf{set():} Dado que una LinkedList está indexada, el elemento que deseamos cambiar está referenciado por el índice del elemento. Por lo tanto, este método toma un índice y el elemento actualizado que debe insertarse en ese índice.
+    \item \textbf{set():} Dado que una LinkedList esta indexada, el elemento que deseamos cambiar esta referenciado por el indice del elemento. Por lo tanto, este metodo toma un indice y el elemento actualizado que debe insertarse en ese indice.
 
     Ejemplo:
     \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
@@ -289,9 +289,9 @@ Donde se tiene que:
     ll.set(1, "a todos");
     \end{lstlisting}
     
-    \item \textbf{remove(Object):} Este método se utiliza para eliminar un objeto de LinkedList. De forma que si hay varios objetos de este tipo, se elimina la primera aparición del objeto mandado como parámetro.
+    \item \textbf{remove(Object):} Este metodo se utiliza para eliminar un objeto de LinkedList. De forma que si hay varios objetos de este tipo, se elimina la primera aparicion del objeto mandado como parametro.
     
-    \item \textbf{remove(int index):} Dado que una LinkedList está indexada, este método toma un valor entero que simplemente elimina el elemento presente en ese índice específico en LinkedList. Después de eliminar el elemento, todos los elementos se mueven hacia la izquierda para llenar el espacio y se actualizan los índices de los objetos.
+    \item \textbf{remove(int index):} Dado que una LinkedList esta indexada, este metodo toma un valor entero que simplemente elimina el elemento presente en ese indice especifico en LinkedList. Despues de eliminar el elemento, todos los elementos se mueven hacia la izquierda para llenar el espacio y se actualizan los indices de los objetos.
 
     Ejemplo:
     \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
@@ -306,7 +306,7 @@ Donde se tiene que:
     LL.remove(" todos");
     \end{lstlisting}
     
-    \item \textbf{contains():}Se utiliza para verificar si un elemento se encuentra dentro de una LinkedList creada. De forma que toma el elemento como parámetro, devuelve verdadero si el elemento se encuentra, en caso contrario, devuelve falso.
+    \item \textbf{contains():}Se utiliza para verificar si un elemento se encuentra dentro de una LinkedList creada. De forma que toma el elemento como parametro, devuelve verdadero si el elemento se encuentra, en caso contrario, devuelve falso.
 
     Ejemplo:
     \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
@@ -327,9 +327,9 @@ Donde se tiene que:
     
     \item \textbf{peek():} Examina el elemento que se encuentra en el encabezado de la lista, se forma que se recupera mas no se elimina.
     
-    \item \textbf{peekFirst():} Similar al método anterior, recupera el primer elemento de esta lista, o devuelve nulo si la lista se encuentra vacía.
+    \item \textbf{peekFirst():} Similar al metodo anterior, recupera el primer elemento de esta lista, o devuelve nulo si la lista se encuentra vacia.
     
-    \item \textbf{peekLast():} Nos permite recuperar el último elemento que se encuentre en la lista, o devuelve nulo si la lista se encuentra vacía.
+    \item \textbf{peekLast():} Nos permite recuperar el ultimo elemento que se encuentre en la lista, o devuelve nulo si la lista se encuentra vacia.
 
     Ejemplo:
     \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
@@ -347,7 +347,7 @@ Donde se tiene que:
     System.out.println("Ultimo elemento de la lista: " + LL.peekLast());
     \end{lstlisting}
 
-    \item \textbf{clone():} Se utiliza para crear una copia superficial de la lista vinculada. No necesita de un parámetro para su funcionamiento, puesto que solo devuelve una copia de la instancia de la lista.
+    \item \textbf{clone():} Se utiliza para crear una copia superficial de la lista vinculada. No necesita de un parametro para su funcionamiento, puesto que solo devuelve una copia de la instancia de la lista.
 
     Ejemplo:
     \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
@@ -367,43 +367,43 @@ Donde se tiene que:
 \end{itemize}
 
 \section*{Vectores (Vector):}
-Para el caso de los vectores, estos llegan a ser semejantes a las matrices, donde en ellos se puede acceder a los elementos del objeto vectorial, esto por medio de un índice en el vector. Como tal, el vector implementa una matriz dinámica, como también, dicho vector no limita su tamaño.
+Para el caso de los vectores, estos llegan a ser semejantes a las matrices, donde en ellos se puede acceder a los elementos del objeto vectorial, esto por medio de un indice en el vector. Como tal, el vector implementa una matriz dinamica, como tambien, dicho vector no limita su tamano.
 
 Si nos damos cuenta, el vector es similar a ArrayList, pero con 2 diferencias:
 \begin{enumerate}
-    \item El vector está sincronizado.
-    \item El vector contiene muchos métodos heredados que no forman parte del marco de las colecciones.
+    \item El vector esta sincronizado.
+    \item El vector contiene muchos metodos heredados que no forman parte del marco de las colecciones.
 \end{enumerate}
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.75\textwidth]{imagenes/Ejemplo Grafico Vector.png}
-    \caption{Pie de página.}
+    \caption{Pie de pagina.}
     \label{fig:vector}
 \end{figure}
 
 \section*{Forma para crear un Vector}
-Se debe tomar en cuenta que para su creación se debe importar la biblioteca:
+Se debe tomar en cuenta que para su creacion se debe importar la biblioteca:
 \begin{center}
     import java.util.Vector;
 \end{center}
-A continuación se presenta la forma para declarar un LinkedList:
+A continuacion se presenta la forma para declarar un LinkedList:
 \begin{center}
-    $Vector<[Tipo de dato]> [Identificador] = new Vector<[Tipo de dato]>([Tamaño]);$
+    $Vector<[Tipo de dato]> [Identificador] = new Vector<[Tipo de dato]>([Tamano]);$
 \end{center}
 
 Donde se tiene que:
 \begin{itemize}
-    \item \textbf{Tipo de dato:} se definirá el tipo de dato contendrá cada uno de los elementos del Vector.
-    \item \textbf{Identificador:} se definirá su nombre.
-    \item \textbf{Tamaño:} se le designará el tamaño que tendrá.
+    \item \textbf{Tipo de dato:} se definira el tipo de dato contendra cada uno de los elementos del Vector.
+    \item \textbf{Identificador:} se definira su nombre.
+    \item \textbf{Tamano:} se le designara el tamano que tendra.
 \end{itemize}
 
-\section*{Métodos principales de Vector}
+\section*{Metodos principales de Vector}
 \begin{itemize}
-    \item \textbf{add():} Nos permite añadir un elemento especificado al final de un vector creado, todo esto mediante el aumento del tamaño del vector por 1.
+    \item \textbf{add():} Nos permite anadir un elemento especificado al final de un vector creado, todo esto mediante el aumento del tamano del vector por 1.
 
-    \item \textbf{add(int index, Object):} El método inserta un elemento en un índice especificado en el vector, de forma que desplaza el elemento que se encuentra actualmente en esa posición, y cualquier elemento posterior a la derecha.
+    \item \textbf{add(int index, Object):} El metodo inserta un elemento en un indice especificado en el vector, de forma que desplaza el elemento que se encuentra actualmente en esa posicion, y cualquier elemento posterior a la derecha.
 
     Ejemplo:
     \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
@@ -416,7 +416,7 @@ Donde se tiene que:
     vec_tor.add(1, " ¿Como estas? ");
     \end{lstlisting}
 
-    \item \textbf{clear():} Se utiliza para eliminar todos los elementos de un vector, es necesario mencionar que el método solo borra los elementos mas no el vector.
+    \item \textbf{clear():} Se utiliza para eliminar todos los elementos de un vector, es necesario mencionar que el metodo solo borra los elementos mas no el vector.
 
     Ejemplo:
     \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
@@ -429,10 +429,10 @@ Donde se tiene que:
 
     vec_tor.clear();
 
-    System.out.println("El vector se encuentra vacío: " + vec_tor);
+    System.out.println("El vector se encuentra vacio: " + vec_tor);
     \end{lstlisting}
 
-    \item \textbf{remove():} Nos permite eliminar un elemento de un vector mediante una posición o índice dado.
+    \item \textbf{remove():} Nos permite eliminar un elemento de un vector mediante una posicion o indice dado.
 
     Ejemplo:
     \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
@@ -446,7 +446,7 @@ Donde se tiene que:
     vec_tor.remove(2);
     \end{lstlisting}
 
-    \item \textbf{contains():} Nos permite verificar si un elemento en específico se encuentra en el vector. Como parámetros se le da un elemento del tipo de vector por buscar. Retorna verdadero en caso de encontrar el elemento, caso contrario devuelve falso.
+    \item \textbf{contains():} Nos permite verificar si un elemento en especifico se encuentra en el vector. Como parametros se le da un elemento del tipo de vector por buscar. Retorna verdadero en caso de encontrar el elemento, caso contrario devuelve falso.
 
     Ejemplo:
     \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
@@ -465,7 +465,7 @@ Donde se tiene que:
     }
     \end{lstlisting}
 
-    \item \textbf{size():} Se utiliza para conocer el tamaño o el número de elementos presentes en el vector. No necesita de un parámetro para su funcionamiento. Retorna el tamaño o la cantidad de elementos en el vector.
+    \item \textbf{size():} Se utiliza para conocer el tamano o el numero de elementos presentes en el vector. No necesita de un parametro para su funcionamiento. Retorna el tamano o la cantidad de elementos en el vector.
 
     Ejemplo:
     \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
@@ -480,7 +480,7 @@ Donde se tiene que:
     System.out.println("Tamano del vector:  " + vec_tor.size());
     \end{lstlisting}
     
-    \item \textbf{indexOfObject():} Nos permite verificar y encontrar la ocurrencia de un elemento dentro del vector. Como parámetro se envía el elemento del tipo vector. Si el elemento está presente, se devuelve el índice de su primera aparición en el vector, en caso contrario devuelve -1.
+    \item \textbf{indexOfObject():} Nos permite verificar y encontrar la ocurrencia de un elemento dentro del vector. Como parametro se envia el elemento del tipo vector. Si el elemento esta presente, se devuelve el indice de su primera aparicion en el vector, en caso contrario devuelve -1.
     
     Ejemplo:
     \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
@@ -498,491 +498,542 @@ Donde se tiene que:
 \end{itemize}
 
 \section*{Stack (Pila):}
-En el marco de Java Collection, se proporciona la clase Stack (Pila) que modela e implementa una estructura de datos Stack. Un Stack es una estructura de datos lineal que solo tienen un único punto de acceso fijo por el cual se añaden, eliminan o se consultan elementos. El modo de acceso a los elementos es de tipo LIFO ( Last In First Out, último en entrar, primero en salir).
-También se puede decir que la clase extiende Vector y trata la clase como una pila, de esta manera, la clase también puede denominarse subclase de Vector.
+En el marco de Java Collection, se proporciona la clase Stack (Pila) que modela e implementa una estructura de datos Stack. Un Stack es una estructura de datos lineal que solo tienen un unico punto de acceso fijo por el cual se anaden, eliminan o se consultan elementos. El modo de acceso a los elementos es de tipo LIFO ( Last In First Out, ultimo en entrar, primero en salir).
 
+Tambien se puede decir que la clase extiende Vector y trata la clase como una pila, de esta manera, la clase tambien puede denominarse subclase de Vector.
 \section*{Forma para crear un Stack}
-Se debe tomar en cuenta que para su creación se debe importar la biblioteca:
+Se debe tomar en cuenta que para su creacion se debe importar la biblioteca:
 
-import java.util.*;
+\begin{center}
+    import java.util.*;
+\end{center}
 
 Para este caso en particular donde la clase Stack, se deriva de la clase Vector, se debe realizar lo siguiente:
-
-public class Stack<E> extends Vector<E>
-
-A continuación se presenta la forma para declarar un Stack:
-
-Stack<[Tipo de dato]> [Identificador] = new Stack<[Tipo de dato]>([Tamaño]);
-
+\begin{center}
+    $public class Stack<E> extends Vector<E>$
+\end{center}
+A continuacion se presenta la forma para declarar un Stack:
+\begin{center}
+    $Stack<[Tipo de dato]> [Identificador] = new Stack<[Tipo de dato]>([Tamano]);$
+\end{center}
 Donde se tiene que:
-Tipo de dato: se definirá el tipo de dato contendrá cada uno de los elementos del Stack
-Identificador: se definirá su nombre.
-Tamaño: se le designará el tamaño que tendrá.
+\begin{itemize}
+    \item \textbf{Tipo de dato:} se definira el tipo de dato contendra cada uno de los elementos del Stack
+    \item \textbf{Identificador:} se definira su nombre.
+    \item \textbf{Tamano:} se le designara el tamano que tendra.
+\end{itemize}
 
-\section*{Métodos principales de Stack}
-push():
-Permite agregar un elemento a la pila, de forma que coloca el elemento en la parte superior de la pila. Como parámetro acepta un elemento de tipo Pila y se refiere al elemento del cual será insertado. 
+\section*{Metodos principales de Stack}
+\begin{itemize}
+    \item \textbf{push():} Permite agregar un elemento a la pila, de forma que coloca el elemento en la parte superior de la pila. Como parametro acepta un elemento de tipo Pila y se refiere al elemento del cual sera insertado.
 
-Ejemplo:
-Stack<String> pila = new Stack<String>();
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    Stack<String> pila = new Stack<String>();
 
-pila.push("Hola ");
-pila.push("esto es ");
-pila.push("una prueba :) ");
+    pila.push("Hola ");
+    pila.push("esto es ");
+    pila.push("una prueba :) ");
 
-System.out.print(pila);
+    System.out.print(pila);
+    \end{lstlisting}
 
+    \item \textbf{search():} Permite buscar un elemento dentro de la pila, de tal forma que se obtiene su distancia desde la parte superior. Como parametro se ingresa el elemento del cual se buscara. El metodo devuelve la posicion del elemento si se encuentra en la pila, en caso de no encontrarlo, se devolvera un -1.
 
-search():
-Permite buscar un elemento dentro de la pila, de tal forma que se obtiene su distancia desde la parte superior. Como parámetro se ingresa el elemento del cual se buscará. El método devuelve la posición del elemento si se encuentra en la pila, en caso de no encontrarlo, se devolverá un -1. 
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    Stack<String> pila = new Stack<String>();
 
-Ejemplo:
-Stack<String> pila = new Stack<String>();
+    pila.push("Hola ");
+    pila.push("esto es ");
+    pila.push("una prueba :) ");
 
-pila.push("Hola ");
-pila.push("esto es ");
-pila.push("una prueba :) ");
+    System.out.println("Posicion del elemento 'Hola':  "+pila.search("Hola"));
+    \end{lstlisting}
 
-System.out.println("Posición del elemento 'Hola':  "+pila.search("Hola"));
+    \item \textbf{pop():} Permite extraer un elemento de la pila. El elemento se saca de la parte superior de la pila y se quita de la misma. El metodo no necesita de un parametro para su funcionamiento. De esta forma, devuelve el elemento del cual sera quitado, para posteriormente eliminarlo de la pila.
+    
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    Stack<String> pila = new Stack<String>();
 
+    pila.push("Hola ");
+    pila.push("esto es ");
+    pila.push("una prueba :) ");
 
-pop():
-Permite extraer un elemento de la pila. El elemento se saca de la parte superior de la pila y se quita de la misma. El método no necesita de un parámetro para su funcionamiento. De esta forma, devuelve el elemento del cual será quitado, para posteriormente eliminarlo de la pila. 
+    System.out.println("Se ha quitado el elemento: "+pila.pop());
 
-Ejemplo:
-Stack<String> pila = new Stack<String>();
+    System.out.print(pila);
+    \end{lstlisting}
 
-pila.push("Hola ");
-pila.push("esto es ");
-pila.push("una prueba :) ");
+    \item \textbf{empty():} Permite verificar si una pila esta vacia o no. El metodo es de tipo booleano y devuelve verdadero si la pila esta vacia, de lo contrario, devolvera falso.
 
-System.out.println(“Se ha quitado el elemento: “+pila.pop());
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    Stack<String> pila = new Stack<String>();
 
-System.out.print(pila);
-
-
-empty():
-Permite verificar si una pila está vacía o no. El método es de tipo booleano y devuelve verdadero si la pila está vacía, de lo contrario, devolverá falso.
-
-Ejemplo:
-Stack<String> pila = new Stack<String>();
-
-System.out.println(“La pila se encuentra vacia? “+pila.empty());
-
+    System.out.println("La pila se encuentra vacia? "+pila.empty());
+    \end{lstlisting}
+\end{itemize}
 
 \section{Colecciones de Java: Cola (Queue)}
-En Java, la estructura de Cola ordena los elementos de la manera FIFO (First In, First Out ó Primero en entrar, Primero en salir). En la Cola, el primer elemento ingresado se elimina primero, y el último se elimina al final.
+En Java, la estructura de Cola ordena los elementos de la manera FIFO (First In, First Out o Primero en entrar, Primero en salir). En la Cola, el primer elemento ingresado se elimina primero, y el ultimo se elimina al final.
 
-Los métodos básicos de la Cola existe de 2 formas:
-Se lanza una excepción si se falla la operación.
-Devuelve un valor especial.
-
-
-Para este caso en cuestión, la cola prioridad se implementa en la interfaz de Cola, de esta manera, cada elemento se ordena de acuerdo con su orden natural, o por un comparador proporcionado en el momento de la construcción de la cola.
+Los metodos basicos de la Cola existe de 2 formas:
+\begin{enumerate}
+    \item Se lanza una excepcion si se falla la operacion.
+    \item Devuelve un valor especial.
+\end{enumerate}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\textwidth]{imagenes/Metodos basicos de la Cola .png}
+    \caption{Pie de pagina.}
+    \label{fig:tabla}
+\end{figure}
+Para este caso en cuestion, la cola prioridad se implementa en la interfaz de Cola, de esta manera, cada elemento se ordena de acuerdo con su orden natural, o por un comparador proporcionado en el momento de la construccion de la cola.
 
 \section*{Forma para crear un Queue}
-Se debe tomar en cuenta que para su creación se debe importar la biblioteca:
-
-import java.util.Queue;
-
-A continuación se presenta la forma para declarar un LinkedList:
-
-Queue<[Tipo de dato]> [Identificador] = new Queue<[Tipo de dato]>([Tamaño]);
-
+Se debe tomar en cuenta que para su creacion se debe importar la biblioteca:
+\begin{center}
+    import java.util.Queue;
+\end{center}
+A continuacion se presenta la forma para declarar un LinkedList:
+\begin{center}
+    $Queue<[Tipo de dato]> [Identificador] = new Queue<[Tipo de dato]>([Tamano]);$
+\end{center}
 Donde se tiene que:
-Tipo de dato: se definirá el tipo de dato contendrá cada uno de los elementos del Queue.
-Identificador: se definirá su nombre.
-Tamaño: se le designará el tamaño que tendrá.
+\begin{itemize}
+    \item \textbf{Tipo de dato:} se definira el tipo de dato contendra cada uno de los elementos del Queue.
+    \item \textbf{Identificador:} se definira su nombre.
+    \item \textbf{Tamano:} se le designara el tamano que tendra.
+\end{itemize}
 
-\section*{Métodos principales de Cola (Queue)}
-add():
-Inserta un elemento pasado en el parámetro al final de la cola en caso de haber espacio. Si la cola al momento de insertar un elemento se encuentra en su capacidad límite, devolverá una excepción. 
+\section*{Metodos principales de Cola (Queue)}
+\begin{itemize}
+    \item \textbf{add():} Inserta un elemento pasado en el parametro al final de la cola en caso de haber espacio. Si la cola al momento de insertar un elemento se encuentra en su capacidad limite, devolvera una excepcion. 
+    
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    Queue<Integer> cola = new LinkedList<Integer>();
 
-Ejemplo:
-Queue<Integer> cola = new LinkedList<Integer>();
+    cola.add(444);
+    cola.add(356);
+    cola.add(890);
 
-cola.add(444);
-cola.add(356);
-cola.add(890);
+    System.out.println("Cola: " +cola);
+    \end{lstlisting}
 
-System.out.println("Cola: " +cola);
+    \item \textbf{offer():} Permite insertar un el elemento especificado en la cola si es posible hacerlo inmediatamente sin violar las restricciones de su capacidad. Este metodo es preferible al metodo add(), ya que este metodo no lanza una excepcion cuando la capacidad del contenedor esta llena, puesto que solo devuelve un falso.
+    
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    Queue<Integer> cola = new LinkedList<Integer>(3);
 
-offer():
-Permite insertar un el elemento especificado en la cola si es posible hacerlo inmediatamente sin violar las restricciones de su capacidad. Este método es preferible al método add(), ya que este método no lanza una excepción cuando la capacidad del contenedor está llena, puesto que solo devuelve un falso.
+    cola.add(444);
+    cola.add(356);
+    cola.add(890);
 
-Ejemplo:
-Queue<Integer> cola = new LinkedList<Integer>(3);
+    if(cola.offer(250)){
+        System.out.println("Se ha insertado el elemento 250 en la cola :) ");
+    }
+    else{
+    	System.out.println("La cola se encuentra llena :( ");
+    }
+    \end{lstlisting}
 
-cola.add(444);
-cola.add(356);
-cola.add(890);
+    \item \textbf{remove():} Devuelve y elimina el elemento al frente de la cola. El metodo regresa una excepcion en caso de que la cola este vacia.
+    
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    Queue<Integer> cola = new LinkedList<Integer>();
 
-if(cola.offer(250)){
-System.out.println("Se ha insertado el elemento 250 en la cola :) ");
-}
-else{
-	System.out.println("La cola se encuentra llena :( ");
-}
+    cola.add(444);
+    cola.add(356);
+    cola.add(890);
+    cola.add(777);
 
+    System.out.println("Elemento eliminado de la cabeza de la cola: " + cola.remove());
+    \end{lstlisting}
 
-remove():
-Devuelve y elimina el elemento al frente de la cola. El método regresa una excepción en caso de que la cola esté vacía.
+    \item \textbf{poll():} Similar al metodo anterior, devuelve y elimina el elemento al frente de la cola. La diferencia de este metodo respecto a remove(), se debe a que este no lanza una excepcion cuando la cola esta vacia, en su lugar devuelve un valor nulo.
+    
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    Queue<Integer> cola = new LinkedList<Integer>();
 
-Ejemplo:
-Queue<Integer> cola = new LinkedList<Integer>();
+    cola.add(444);
+    cola.add(356);
+    cola.add(890);
+    cola.add(777);
 
-cola.add(444);
-cola.add(356);
-cola.add(890);
-cola.add(777);
+    System.out.println("Elemento eliminado de la cabeza de la cola: " + cola.poll());
+    \end{lstlisting}
 
-System.out.println("Elemento eliminado de la cabeza de la cola: " + cola.remove());
+    \item \textbf{element():} Devuelve el elemento que se encuentre al frente de la cola, es necesario mencionar que dicho elemento no lo elimina. Su funcionamiento es semejante a peek(), pero su diferencia radica en que solo lanza una excepcion si la cola esta vacia.
+    
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    Queue<Integer> cola = new LinkedList<Integer>();
 
-
-poll():
-Similar al método anterior, devuelve y elimina el elemento al frente de la cola. La diferencia de este método respecto a remove(), se debe a que este no lanza una excepción cuando la cola está vacía, en su lugar devuelve un valor nulo.
-
-Ejemplo:
-Queue<Integer> cola = new LinkedList<Integer>();
-
-cola.add(444);
-cola.add(356);
-cola.add(890);
-cola.add(777);
-
-System.out.println("Elemento eliminado de la cabeza de la cola: " + cola.poll());
-
-
-element():
-Devuelve el elemento que se encuentre al frente de la cola, es necesario mencionar que dicho elemento no lo elimina. Su funcionamiento es semejante a peek(), pero su diferencia radica en que solo lanza una excepción si la cola está vacía.
-
-Ejemplo:
-Queue<Integer> cola = new LinkedList<Integer>();
-
-cola.add(444);
-cola.add(356);
-cola.add(890);
-cola.add(777);
-
-System.out.println("Elemento en la cabeza de la cola: " + cola.element());
-
+    cola.add(444);
+    cola.add(356);
+    cola.add(890);
+    cola.add(777);
+    
+    System.out.println("Elemento en la cabeza de la cola: " + cola.element());
+    \end{lstlisting}
+\end{itemize}
 
 \section{Colecciones de Java: Conjuntos (Sets)}
-Un conjunto se refiere a una colección que no puede contener elementos duplicados. Su uso se enfoca principalmente en modelar la abstracción de conjuntos matemáticos. Para este caso Set tiene su implementación en varias clases como:
-Hashsests
-LinkedHashet
-TreeSet
+Un conjunto se refiere a una coleccion que no puede contener elementos duplicados. Su uso se enfoca principalmente en modelar la abstraccion de conjuntos matematicos. Para este caso Set tiene su implementacion en varias clases como:
+\begin{enumerate}
+    \item \textbf{Hashsests}
+    \item \textbf{LinkedHashet}
+    \item \textbf{TreeSet}
+\end{enumerate}
 
 \section*{HashSet}
-En Java, la clase HashSet crea una colección que usa una tabla hash para su almacenamiento. HashSet solo puede contener elementos únicos, a su vez, hereda la clase AbstractSet e implementa la interfaz Set.
+En Java, la clase HashSet crea una coleccion que usa una tabla hash para su almacenamiento. HashSet solo puede contener elementos unicos, a su vez, hereda la clase AbstractSet e implementa la interfaz Set.
 
 \section*{Forma para crear un HashSet}
-Se debe tomar en cuenta que para su creación se debe importar la biblioteca:
-
-import java.util.HashSet;
-
-A continuación se presenta la forma para declarar un HashSet:
-
-HashSet<[Tipo de dato]> [Identificador] = new HashSet<[Tipo de dato]>([Tamaño]);
-
+Se debe tomar en cuenta que para su creacion se debe importar la biblioteca:
+\begin{center}
+    import java.util.HashSet;
+\end{center}
+A continuacion se presenta la forma para declarar un HashSet:
+\begin{center}
+   $HashSet<[Tipo de dato]> [Identificador] = new HashSet<[Tipo de dato]>([Tamano]);$ 
+\end{center}
 Donde se tiene que:
-Tipo de dato: se definirá el tipo de dato contendrá cada uno de los elementos del HashSet.
-Identificador: se definirá su nombre.
-Tamaño: se le designará el tamaño que tendrá.
+\begin{itemize}
+    \item \textbf{Tipo de dato:} se definira el tipo de dato contendra cada uno de los elementos del HashSet.
+    \item \textbf{Identificador:} se definira su nombre.
+    \item \textbf{Tamano:} se le designara el tamano que tendra.
+\end{itemize}
 
-\section*{Métodos principales de Hashset}
-add():
-Permite añadir o insertar elementos al Hashset, sin embargo, la orden de inserción no se conserva. Es necesario tener en cuenta que los elementos duplicados no están permitidos, por lo que cada elemento duplicado que se encuentre se ignorará. 
+\section*{Metodos principales de Hashset}
+\begin{itemize}
+    \item \textbf{add():} Permite anadir o insertar elementos al Hashset, sin embargo, la orden de insercion no se conserva. Es necesario tener en cuenta que los elementos duplicados no estan permitidos, por lo que cada elemento duplicado que se encuentre se ignorara. 
 
-Ejemplo:
-HashSet<String> hs = new HashSet<String>();
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    HashSet<String> hs = new HashSet<String>();
 
-hs.add("A");
-hs.add("B");
-hs.add("C");
-hs.add("D");
+    hs.add("A");
+    hs.add("B");
+    hs.add("C");
+    hs.add("D");
+    \end{lstlisting}
 
+    \item \textbf{contains():} Verifica si un elemento especifico se encuentra dentro del HashSet. Como parametro se envia un elemento del tipo HashSet. Retorna  verdadero si el elemento se encuentra, en caso contrario devuelve falso.
 
-contains():
-Verifica si un elemento específico se encuentra dentro del HashSet. Como parámetro se envía un elemento del tipo HashSet. Retorna  verdadero si el elemento se encuentra, en caso contrario devuelve falso.
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    HashSet<String> hs = new HashSet<String>();
 
-Ejemplo:
-HashSet<String> hs = new HashSet<String>();
+    hs.add("A");
+    hs.add("B");
+    hs.add("C");
+    hs.add("D");
 
-hs.add("A");
-hs.add("B");
-hs.add("C");
-hs.add("D");
+    if(hs.contains("D") == true){
+        System.out.println("La letra 'D' esta presente :) ");
+    }
+    else{
+	   System.out.println("La letra 'D' no esta :( ");
+    }
+    \end{lstlisting}
 
-if(hs.contains(“D”) == true){
-System.out.println("La letra ‘D’ está presente :) ");
-}
-else{
-	System.out.println("La letra ‘D’ no está :( ");
-}
+    \item \textbf{clear():} Permite eliminar todos los elementos de un HashSet. El uso de este metodo solo borra todos los elementos del conjunto, mas no elimina al conjunto.
 
-clear():
-Permite eliminar todos los elementos de un HashSet. El uso de este método solo borra todos los elementos del conjunto, mas no elimina al conjunto.
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    HashSet<String> hs = new HashSet<String>();
 
-Ejemplo:
-HashSet<String> hs = new HashSet<String>();
+    hs.add("A");
+    hs.add("B");
+    hs.add("C");
+    hs.add("D");
 
-hs.add("A");
-hs.add("B");
-hs.add("C");
-hs.add("D");
+    System.out.println("Conjunto despues de usar clear(): " + hs.clear());
+    \end{lstlisting}
 
-System.out.println(“Conjunto después de usar clear(): “ + hs.clear());
+    \item \textbf{isEmpty():} Permite verificar si un Hashset se encuentra vacio. Este devuelve verdadero si el HashSet esta vacio, en caso contrario devolvera un falso.
 
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    HashSet<String> hs = new HashSet<String>();
 
-isEmpty():
-Permite verificar si un Hashset se encuentra vacío. Este devuelve verdadero si el HashSet está vacío, en caso contrario devolverá un falso.
+    hs.add("A");
+    hs.add("B");
+    hs.add("C");
+    hs.add("D");
 
-Ejemplo:
-HashSet<String> hs = new HashSet<String>();
+    if(hs.isEmpty() == true){
+        System.out.println("El conjunto esta vacio :) ");
+    }
+    else{
+    	System.out.println("El conjunto tiene elementos :( ");
+    }
+    \end{lstlisting}
 
-hs.add("A");
-hs.add("B");
-hs.add("C");
-hs.add("D");
+    \item \textbf{remove():} Permite eliminar un elemento especificado dentro del HashSet.
 
-if(hs.isEmpty() == true){
-System.out.println("El conjunto está vacío :) ");
-}
-else{
-	System.out.println("El conjunto tiene elementos :( ");
-}
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    HashSet<String> hs = new HashSet<String>();
 
+    hs.add("A");
+    hs.add("B");
+    hs.add("C");
+    hs.add("D");
 
-remove():
-Permite eliminar un elemento especificado dentro del HashSet.
+    hs.remove("D");
+    \end{lstlisting}
 
-Ejemplo:
-HashSet<String> hs = new HashSet<String>();
+    \item \textbf{clone():} Se utiliza para devolver una copia superficial del conjunto de hash. No necesita de ningun parametro para su funcionamiento.
 
-hs.add("A");
-hs.add("B");
-hs.add("C");
-hs.add("D");
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    HashSet<Integer> hs = new HashSet<Integer>();
 
-hs.remove(“D”);
+    hs.add(1);
+    hs.add(2);
+    hs.add(3);
+    hs.add(4);
 
+    HashSet hs_2  = new HashSet();
 
-clone():
-Se utiliza para devolver una copia superficial del conjunto de hash. No necesita de ningún parámetro para su funcionamiento.
+    hs_2 = hs.clone();
 
-Ejemplo:
-HashSet<Integer> hs = new HashSet<Integer>();
+    System.out.println("Nuevo conjunto clonado: " +hs_2);
+    \end{lstlisting}
 
-hs.add(1);
-hs.add(2);
-hs.add(3);
-hs.add(4);
+    \item \textbf{size():} Permite obtener el tamano, o conocer la cantidad de elementos que se encuentran en el HashSet.
 
-HashSet hs_2  = new HashSet();
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    HashSet<Integer> hs = new HashSet<Integer>();
 
-hs_2 = hs.clone();
+    hs.add(1);
+    hs.add(2);
+    hs.add(3);
+    hs.add(4);
 
-System.out.println("Nuevo conjunto clonado: " +hs_2);
-
-
-size():
-Permite obtener el tamaño, o conocer la cantidad de elementos que se encuentran en el HashSet.
-
-Ejemplo:
-HashSet<Integer> hs = new HashSet<Integer>();
-
-hs.add(1);
-hs.add(2);
-hs.add(3);
-hs.add(4);
-
-System.out.println("Tamaño del conjunto: " +hs.size());
-
+    System.out.println("Tamano del conjunto: " +hs.size());
+    \end{lstlisting}
+\end{itemize}
 
 \section*{LinkedHashSet (HashSet vinculado)}
-En Java, HashSet vinculado o LinkedHashSet es una tabla Hash con una implementación de lista vinculada de la interfaz Set. Contiene elementos únicos como HashSet, también, proporciona cada uno de los métodos HashSet, manteniendo el orden de inserción.
+En Java, HashSet vinculado o LinkedHashSet es una tabla Hash con una implementacion de lista vinculada de la interfaz Set. Contiene elementos unicos como HashSet, tambien, proporciona cada uno de los metodos HashSet, manteniendo el orden de insercion.
 
 \section*{Forma para crear un LinkedHashSet}
-Se debe tomar en cuenta que para su creación se debe importar la biblioteca:
-
-import java.util.LinkedHashSet;
-
-A continuación se presenta la forma para declarar un LinkedHashSet:
-
-LinkedHashSet<[Tipo de dato]> [Identificador] = new LinkedHashSet<[Tipo de dato]>([Tamaño]);
-
+Se debe tomar en cuenta que para su creacion se debe importar la biblioteca:
+\begin{center}
+    import java.util.LinkedHashSet;
+\end{center}
+A continuacion se presenta la forma para declarar un LinkedHashSet:
+\begin{center}
+    $LinkedHashSet<[Tipo de dato]> [Identificador] = new LinkedHashSet<[Tipo de dato]>([Tamano]);$
+\end{center}
 Donde se tiene que:
-Tipo de dato: se definirá el tipo de dato contendrá cada uno de los elementos del LinkedHashSet.
-Identificador: se definirá su nombre.
-Tamaño: se le designará el tamaño que tendrá.
-
+\begin{itemize}
+    \item \textbf{Tipo de dato:} se definira el tipo de dato contendra cada uno de los elementos del LinkedHashSet.
+    \item \textbf{Identificador:} se definira su nombre.
+    \item \textbf{Tamano:} se le designara el tamano que tendra.
+\end{itemize}
 
 \section*{TreeSet}
-La clase TreeSet implementa la interfaz Set, del cual usa un árbol binario para su almacenamiento. Cada uno de los objetos se almacenan en orden ascendente. Dicha clase hereda la clase AbstractSet e implementa la interfaz NavigableSet. Al igual que las anteriores clases, este solo puede contener elementos únicos. La clase TreeSet llega a ser mucho más rápida en el tiempo de acceso y recuperación de los elementos.
+La clase TreeSet implementa la interfaz Set, del cual usa un arbol binario para su almacenamiento. Cada uno de los objetos se almacenan en orden ascendente. Dicha clase hereda la clase AbstractSet e implementa la interfaz NavigableSet. Al igual que las anteriores clases, este solo puede contener elementos unicos. La clase TreeSet llega a ser mucho mas rapida en el tiempo de acceso y recuperacion de los elementos.
 
 \section*{Forma para crear un TreeSet}
-Se debe tomar en cuenta que para su creación se debe importar la biblioteca:
-
-import java.util.Set;
-
-A continuación se presenta la forma para declarar un TreeSet:
-
-Set<[Tipo de dato]> [Identificador] = new TreeSet<[Tipo de dato]>([Tamaño]);
-
+Se debe tomar en cuenta que para su creacion se debe importar la biblioteca:
+\begin{center}
+    import java.util.Set;
+\end{center}
+A continuacion se presenta la forma para declarar un TreeSet:
+\begin{center}
+    $Set<[Tipo de dato]> [Identificador] = new TreeSet<[Tipo de dato]>([Tamano]);$
+\end{center}
 Donde se tiene que:
-Tipo de dato: se definirá el tipo de dato contendrá cada uno de los elementos del TreeSet.
-Identificador: se definirá su nombre.
-Tamaño: se le designará el tamaño que tendrá.
+\begin{itemize}
+    \item \textbf{Tipo de dato:} se definira el tipo de dato contendra cada uno de los elementos del TreeSet.
+    \item \textbf{Identificador:} se definira su nombre.
+    \item \textbf{Tamano:} se le designara el tamano que tendra.
+\end{itemize}
 
-\section*{Métodos principales de TreeSet}
-add():
-Permite agregar un elemento en específico dentro de un TreeSet. El método agrega al elemento sólo si el elemento no se encuentra, caso contrario el método devuelve un falso.
+\section*{Metodos principales de TreeSet}
+\begin{itemize}
+    \item \textbf{add():} Permite agregar un elemento en especifico dentro de un TreeSet. El metodo agrega al elemento solo si el elemento no se encuentra, caso contrario el metodo devuelve un falso.
+    
+    \item \textbf{addAll():} Permite agregar todos los elementos de la coleccion al conjunto creado. Cada uno de los elementos se agregan aleatoriamente sin seguir ningun orden especifico.
+    
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    TreeSet<String> tree = new TreeSet<String>();
 
-addAll():
-Permite agregar todos los elementos de la colección al conjunto creado. Cada uno de los elementos se agregan aleatoriamente sin seguir ningún orden específico.
+    tree.add("Hola ");
+    tree.add("esto es ");
+    tree.add("una prueba ");
 
-Ejemplo:
-TreeSet<String> tree = new TreeSet<String>();
+    TreeSet<String> tree_2 = new TreeSet<String>();
 
-tree.add(“Hola ");
-tree.add("esto es ");
-tree.add(“una prueba ");
+    tree_2.add("Bienvenidos ");
+    tree_2.add("sean todos ");
 
-TreeSet<String> tree_2 = new TreeSet<String>();
+    tree.addAll(tree_2);
 
-tree_2.add(“Bienvenidos ”);
-tree_2.add(“sean todos ”);
+    System.out.println("TreeSet: " + tree);
+    \end{lstlisting}
 
-tree.addAll(tree_2);
+    \item \textbf{contains():} Se utiliza para comprobar si un elemento especifico esta presente en el TreeSet. Devuelve verdadero si el elemento se encuentra dentro del TreeSet, en caso contrario devuelve un falso.
 
-System.out.println("TreeSet: " + tree);
+    \item \textbf{containsAll():} Permite comprobar si dos conjuntos contienen los mismos elementos o no. Toma un conjunto como parametro y devuelve verdadero si todos los elementos de este conjunto estan presentes en el otro conjunto.
+    
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    TreeSet<Integer> set = new TreeSet<Integer>();
 
+    set.add(12);
+    set.add(99);
+    set.add(42);
+    set.add(30);
 
-contains():
-Se utiliza para comprobar si un elemento específico está presente en el TreeSet. Devuelve verdadero si el elemento se encuentra dentro del TreeSet, en caso contrario devuelve un falso.
+    System.out.println("¿El conjunto contiene al 99? "+ set.contains(99));
 
-containsAll():
-Permite comprobar si dos conjuntos contienen los mismos elementos o no. Toma un conjunto como parámetro y devuelve verdadero si todos los elementos de este conjunto están presentes en el otro conjunto.
+    TreeSet<Integer> set_2 = new TreeSet<Integer>();
 
-Ejemplo:
-TreeSet<Integer> set = new TreeSet<Integer>();
+    set_2.add(12);
+    set_2.add(99);
+    set_2.add(42);
+    set_2.add(30);
 
-set.add(12);
-set.add(99);
-set.add(42);
-set.add(30);
+    System.out.println("¿El conjunto 1 contiene al conjunto 2?  "+ set.containsAll(set_2));
+    \end{lstlisting}
 
-System.out.println("¿El conjunto contiene al 99? "+ set.contains(99));
+    \item \textbf{isEmpty():} Permite comprobar y verificar si un TreeSet se encuentra vacio. Retorna verdadero si el TreeSet esta vacio, en caso contrario devuelve falso.
+    
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    TreeSet<String> tree = new TreeSet<String>();
 
+    if(tree.isEmpty() == true){
+        System.out.println("El conjunto esta vacio :) ");
+    }
+    else{
+	   System.out.println("El conjunto tiene elementos :( ");
+    }
+    \end{lstlisting}
 
-TreeSet<Integer> set_2 = new TreeSet<Integer>();
+    \item \textbf{remove():} Permite eliminar un elemento en particular de un TreeSet. Como parametros se le da el elemento del cual se eliminara del conjunto. Retorna verdadero si se elimina el elemento dado del conjunto, de lo contrario devuelve falso.
+    
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    TreeSet<Integer> set = new TreeSet<Integer>();
 
-set_2.add(12);
-set_2.add(99);
-set_2.add(42);
-set_2.add(30);
+    set.add(12);
+    set.add(99);
+    set.add(42);
+    set.add(30);
 
-System.out.println("¿El conjunto 1 contiene al conjunto 2?  "+ set.containsAll(set_2));
+    sett.remove(42);
 
+    System.out.println("Nuevo conjunto despues de haber eliminado el elemento 42: "+set);
+    \end{lstlisting}
 
-isEmpty():
-Permite comprobar y verificar si un TreeSet se encuentra vacío. Retorna verdadero si el TreeSet está vacío, en caso contrario devuelve falso.
+    \item \textbf{clear():} Permite eliminar todos los elementos de un TreeSet. Al usar este metodo borra unicamente los elementos del conjunto, mas no el conjunto.
 
-Ejemplo:
-TreeSet<String> tree = new TreeSet<String>();
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    TreeSet<Integer> set = new TreeSet<Integer>();
 
-if(tree.isEmpty() == true){
-System.out.println("El conjunto está vacío :) ");
-}
-else{
-	System.out.println("El conjunto tiene elementos :( ");
-}
+    set.add(12);
+    set.add(99);
+    set.add(42);
+    set.add(30);
 
+    set.clear();
 
-remove():
-Permite eliminar un elemento en particular de un TreeSet. Como parámetros se le da el elemento del cual se eliminará del conjunto. Retorna verdadero si se elimina el elemento dado del conjunto, de lo contrario devuelve falso.
+    System.out.println("Conjunto despues haber eliminado sus elementos: "+set);
+    \end{lstlisting}
 
-Ejemplo:
-TreeSet<Integer> set = new TreeSet<Integer>();
+    \item \textbf{clone():} Devuelve una copia superficial del conjunto de arboles.
 
-set.add(12);
-set.add(99);
-set.add(42);
-set.add(30);
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    TreeSet<String> tree = new TreeSet<String>();
 
-sett.remove(42);
+    tree.add("Hola ");
+    tree.add("esto es ");
+    tree.add("una prueba ");
 
-System.out.println("Nuevo conjunto después de haber eliminado el elemento 42: "+set);
-clear():
-Permite eliminar todos los elementos de un TreeSet. Al usar este método borra únicamente los elementos del conjunto, mas no el conjunto.
+    TreeSet tree_2 = new TreeSet();
 
-Ejemplo:
-TreeSet<Integer> set = new TreeSet<Integer>();
+    tree_2 = tree.clone();
 
-set.add(12);
-set.add(99);
-set.add(42);
-set.add(30);
+    System.out.println("Conjunto clonado: "+tree_2);
+    \end{lstlisting}
 
-set.clear();
+    \item \textbf{fist():} Permite devolver el primero de los elementos de un TreeSet. El primer elemento aqui se refiere al mas bajo de los elementos del conjunto, puesto que nos encontramos en un conjunto de arboles. Es necesario mencionar que si los elementos son de tipo entero, se devuelve el numero entero mas pequeno; en caso de ser elementos de tipo string, los elementos se verifican en orden alfabetico.
 
-System.out.println("Conjunto después haber eliminado sus elementos: "+set);
+    \item \textbf{last():} Permite devolver el ultimo elemento de un TreeSet. El ultimo elemento aqui se refiere al mas alto de los elementos del conjunto. Es necesario mencionar que si los elementos son de tipo entero, se devuelve el entero mas grande; en caso de ser elementos de tipo string, los elementos se verifican en orden alfabetico
 
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    TreeSet<Integer> tree = new TreeSet<Integer>();
 
-clone():
-Devuelve una copia superficial del conjunto de árboles.
+    tree.add(500);
+    tree.add(12);
+    tree.add(210);
+    tree.add(98);
+    tree.add(7);
 
-Ejemplo:
-TreeSet<String> tree = new TreeSet<String>();
+    System.out.println("El primer elemento del conjunto es: "+tree.first());
 
-tree.add(“Hola ");
-tree.add("esto es ");
-tree.add(“una prueba ");
+    System.out.println("El ultimo elemento del conjunto es: "+tree.last());
+    \end{lstlisting}
 
-TreeSet tree_2 = new TreeSet();
+    \item \textbf{size():} Nos permite obtener el tamano del conjunto de arboles, o la cantidad de elementos presentes en el. No necesita de un parametro para su funcionamiento.
 
-tree_2 = tree.clone();
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    TreeSet<Integer> tree = new TreeSet<Integer>();
 
-System.out.println("Conjunto clonado: "+tree_2);
+    tree.add(500);
+    tree.add(12);
+    tree.add(210);
+    tree.add(98);
+    tree.add(7);
 
+    System.out.println("Tamano del conjunto: "+tree.size());
+    \end{lstlisting}
+\end{itemize}
 
-fist():
-Permite devolver el primero de los elementos de un TreeSet. El primer elemento aquí se refiere al más bajo de los elementos del conjunto, puesto que nos encontramos en un conjunto de árboles. Es necesario mencionar que si los elementos son de tipo entero, se devuelve el número entero más pequeño; en caso de ser elementos de tipo string, los elementos se verifican en orden alfabético.
-
-last():
-Permite devolver el último elemento de un TreeSet. El último elemento aquí se refiere al más alto de los elementos del conjunto. Es necesario mencionar que si los elementos son de tipo entero, se devuelve el entero más grande; en caso de ser elementos de tipo string, los elementos se verifican en orden alfabético
-
-Ejemplo:
-TreeSet<Integer> tree = new TreeSet<Integer>();
-
-tree.add(500);
-tree.add(12);
-tree.add(210);
-tree.add(98);
-tree.add(7);
-
-System.out.println("El primer elemento del conjunto es: "+tree.first());
-
-System.out.println("El último elemento del conjunto es: "+tree.last());
-
-
-size():
-Nos permite obtener el tamaño del conjunto de árboles, o la cantidad de elementos presentes en él. No necesita de un parámetro para su funcionamiento.
-
-Ejemplo:
-TreeSet<Integer> tree = new TreeSet<Integer>();
-
-tree.add(500);
-tree.add(12);
-tree.add(210);
-tree.add(98);
-tree.add(7);
-
-System.out.println("Tamaño del conjunto: "+tree.size());
-
-
-\section*{Referencias electrónicas:}
+\section*{Referencias electronicas:}
 \begin{itemize}
     \item ArrayList en Java – Acervo Lima. (s. f.). Recuperado 24 de septiembre de 2022, de \href{https://bit.ly/3fB4HAN}{https://es.acervolima.com/arraylist-en-java/}
     
