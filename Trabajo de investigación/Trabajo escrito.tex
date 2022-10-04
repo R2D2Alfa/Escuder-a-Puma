@@ -201,7 +201,7 @@ Donde se tiene que:
     lista.add(2);
     lista.add(3);
 
-    System.out.println(“El primer elemento es: ”+ lista.get(O));
+    System.out.println("El primer elemento es: "+ lista.get(0));
     \end{lstlisting}
 \end{itemize}
 
@@ -210,9 +210,22 @@ La lista vinculada o Linked List, es una secuencia de vínculos que contiene ele
 
 La clase LinkedList en Java utiliza 2 tipos de listas vinculadas para almacenar los elementos:
 \begin{enumerate}
-    \item Lista individualmente vinculada: En una lista enlazada individual, cada nodo de esta lista almacena los datos del nodo y un puntero o referencia al siguiente nodo de la lista.
+    \item \textbf{Lista individualmente vinculada:} En una lista enlazada individual, cada nodo de esta lista almacena los datos del nodo y un puntero o referencia al siguiente nodo de la lista.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.75\textwidth]{imagenes/Lista individualmente vinculada.png}
+        \caption{Pie de página.}
+        \label{fig:individual}
+    \end{figure}
 
-    \item Lista doblemente enlazada: En una lista doblemente enlazada, tiene dos referencias, una al nodo siguiente y otra al nodo anterior.
+    \item \textbf{Lista doblemente enlazada:} En una lista doblemente enlazada, tiene dos referencias, una al nodo siguiente y otra al nodo anterior.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.75\textwidth]{imagenes/Lista doblemente enlazada.png}
+        \caption{Pie de página.}
+        \label{fig:doblemente}
+    \end{figure}
+
 \end{enumerate}
 
 \section*{Forma para crear un LinkedList}
@@ -234,227 +247,255 @@ Donde se tiene que:
 \end{itemize}
 
 \section*{Métodos principales en Linked List}
-add(Objeto):
-Nos permite agregar un elemento al final de LinkedList.
+\begin{itemize}
+    \item \textbf{add(Objeto):} Nos permite agregar un elemento al final de LinkedList.
+    
+    \item \textbf{add(int index, Object):} Permite agregar un elemento en un índice en específico en LinkedList.
+    
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    Ejemplo:
+    \begin{lstlisting}[frame=single]
+    LinkedList<String> LL = new LinkedList<>();
 
-add(int index, Object):
-Permite agregar un elemento en un índice en específico en LinkedList.
-Ejemplo:
-LinkedList<String> LL = new LinkedList<>();
+    LL.add("Hola");  
+    LL.add(1, "Mundo");
+    \end{lstlisting}
+    
+    \item \textbf{get():} Nos permite buscar o recuperar un elemento de un índice en específico de LinkedList. Como parámetros se le da el índice del elemento que deseamos obtener. Este retorna el elemento encontrado en esa posición.
+    
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    LinkedList<String> list = new LinkedList<String>();
 
-LL.add("Hola");  
-LL.add(1, "Mundo");
+    list.add("Esto");
+    list.add(" es");
+    list.add(" una prueba");
+    list.add(" 10");
 
+    System.out.println("El elemento en la posición 2 es: "+ list.get(2));
+    \end{lstlisting}
+    
+    \item \textbf{set():} Dado que una LinkedList está indexada, el elemento que deseamos cambiar está referenciado por el índice del elemento. Por lo tanto, este método toma un índice y el elemento actualizado que debe insertarse en ese índice.
 
-get():
-Nos permite buscar o recuperar un elemento de un índice en específico de LinkedList. Como parámetros se le da el índice del elemento que deseamos obtener. Este retorna el elemento encontrado en esa posición.
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    LinkedList<String> LL = new LinkedList<>();
 
-Ejemplo:
-LinkedList<String> list = new LinkedList<String>();
+    LL.add("Hola");  
+    LL.add(1, "Mundo");
 
-list.add("Esto");
-list.add(" es");
-list.add(" una prueba");
-list.add(" 10");
+    ll.set(1, "a todos");
+    \end{lstlisting}
+    
+    \item \textbf{remove(Object):} Este método se utiliza para eliminar un objeto de LinkedList. De forma que si hay varios objetos de este tipo, se elimina la primera aparición del objeto mandado como parámetro.
+    
+    \item \textbf{remove(int index):} Dado que una LinkedList está indexada, este método toma un valor entero que simplemente elimina el elemento presente en ese índice específico en LinkedList. Después de eliminar el elemento, todos los elementos se mueven hacia la izquierda para llenar el espacio y se actualizan los índices de los objetos.
 
-System.out.println("El elemento en la posición 2 es: "+ list.get(2));
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    LinkedList<String> LL = new LinkedList<>();
 
+    LL.add("Hola");  
+    LL.add(" a");
+    LL.add(" todos :)");
 
-set():
-Dado que una LinkedList está indexada, el elemento que deseamos cambiar está referenciado por el índice del elemento. Por lo tanto, este método toma un índice y el elemento actualizado que debe insertarse en ese índice.
+    LL.remove(1);
+    LL.remove(" todos");
+    \end{lstlisting}
+    
+    \item \textbf{contains():}Se utiliza para verificar si un elemento se encuentra dentro de una LinkedList creada. De forma que toma el elemento como parámetro, devuelve verdadero si el elemento se encuentra, en caso contrario, devuelve falso.
 
-Ejemplo:
-LinkedList<String> LL = new LinkedList<>();
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    LinkedList<String> LL = new LinkedList<>();
 
-LL.add("Hola");  
-LL.add(1, "Mundo");
+    LL.add("Hola");  
+    LL.add( " a");
+    LL.add( " todos :)");
 
-ll.set(1, "a todos");
+    if(LL.contains("Hola") == true){
+        System.out.println("El elemento 'Hola' se encuentra en la lista :) ");
+    }
+    else{
+    	System.out.println("El elemento no esta en la lista :( ");
+    }
+    \end{lstlisting}
+    
+    \item \textbf{peek():} Examina el elemento que se encuentra en el encabezado de la lista, se forma que se recupera mas no se elimina.
+    
+    \item \textbf{peekFirst():} Similar al método anterior, recupera el primer elemento de esta lista, o devuelve nulo si la lista se encuentra vacía.
+    
+    \item \textbf{peekLast():} Nos permite recuperar el último elemento que se encuentre en la lista, o devuelve nulo si la lista se encuentra vacía.
 
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    LinkedList<String> LL = new LinkedList<>();
 
-remove(Object):
-Este método se utiliza para eliminar un objeto de LinkedList. De forma que si hay varios objetos de este tipo, se elimina la primera aparición del objeto mandado como parámetro.
+    LL.add("Hola");  
+    LL.add( " a");
+    LL.add( " todos :)");
 
-remove(int index):
-Dado que una LinkedList está indexada, este método toma un valor entero que simplemente elimina el elemento presente en ese índice específico en LinkedList. Después de eliminar el elemento, todos los elementos se mueven hacia la izquierda para llenar el espacio y se actualizan los índices de los objetos.
+    System.out.println("Encabezado de la lista: " +LL.peek());
 
-Ejemplo:
-LinkedList<String> LL = new LinkedList<>();
+    System.out.println("Primer elemento de la lista: " +LL.peekFirst());
 
-LL.add("Hola");  
-LL.add( " a");
-LL.add( " todos :)");
+    System.out.println("Ultimo elemento de la lista: " + LL.peekLast());
+    \end{lstlisting}
 
-LL.remove(1);
-LL.remove(“ todos”);
+    \item \textbf{clone():} Se utiliza para crear una copia superficial de la lista vinculada. No necesita de un parámetro para su funcionamiento, puesto que solo devuelve una copia de la instancia de la lista.
 
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    LinkedList<String> list = new LinkedList<String>();
 
-contains():
-Se utiliza para verificar si un elemento se encuentra dentro de una LinkedList creada. De forma que toma el elemento como parámetro, devuelve verdadero si el elemento se encuentra, en caso contrario, devuelve falso.
+    list.add("Esto");
+    list.add(" es");
+    list.add(" una prueba");
+    list.add(" 10");
 
-Ejemplo:
-LinkedList<String> LL = new LinkedList<>();
+    LinkedList sec_list = new LinkedList();
 
-LL.add("Hola");  
-LL.add( " a");
-LL.add( " todos :)");
-
-if(LL.contains(“Hola”) == true){
-System.out.println("El elemento ‘Hola’ se encuentra en la lista :) ");
-}
-else{
-	System.out.println("El elemento no está en la lista :( ");
-}
-
-
-peek():
-Examina el elemento que se encuentra en el encabezado de la lista, se forma que se recupera mas no se elimina.
-
-peekFirst():
-Similar al método anterior, recupera el primer elemento de esta lista, o devuelve nulo si la lista se encuentra vacía.
-
-peekLast():
-Nos permite recuperar el último elemento que se encuentre en la lista, o devuelve nulo si la lista se encuentra vacía.
-
-Ejemplo:
-LinkedList<String> LL = new LinkedList<>();
-
-LL.add("Hola");  
-LL.add( " a");
-LL.add( " todos :)");
-
-System.out.println("Encabezado de la lista: " +LL.peek());
-
-System.out.println("Primer elemento de la lista: " +LL.peekFirst());
-
-System.out.println("Último elemento de la lista: " +LL.peekLast());
-
-
-clone():
-Se utiliza para crear una copia superficial de la lista vinculada. No necesita de un parámetro para su funcionamiento, puesto que solo devuelve una copia de la instancia de la lista.
-
-Ejemplo:
-LinkedList<String> list = new LinkedList<String>();
-
-list.add("Esto");
-list.add(" es");
-list.add(" una prueba");
-list.add(" 10");
-
-%LinkedList sec_list = new LinkedList();
-
-sec_list = list.clone();
-
+    sec_list = list.clone();
+    \end{lstlisting}
+    
+\end{itemize}
 
 \section*{Vectores (Vector):}
 Para el caso de los vectores, estos llegan a ser semejantes a las matrices, donde en ellos se puede acceder a los elementos del objeto vectorial, esto por medio de un índice en el vector. Como tal, el vector implementa una matriz dinámica, como también, dicho vector no limita su tamaño.
 
 Si nos damos cuenta, el vector es similar a ArrayList, pero con 2 diferencias:
-El vector está sincronizado.
-El vector contiene muchos métodos heredados que no forman parte del marco de las colecciones.
+\begin{enumerate}
+    \item El vector está sincronizado.
+    \item El vector contiene muchos métodos heredados que no forman parte del marco de las colecciones.
+\end{enumerate}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\textwidth]{imagenes/Ejemplo Grafico Vector.png}
+    \caption{Pie de página.}
+    \label{fig:vector}
+\end{figure}
 
 \section*{Forma para crear un Vector}
 Se debe tomar en cuenta que para su creación se debe importar la biblioteca:
-
-import java.util.Vector;
-
+\begin{center}
+    import java.util.Vector;
+\end{center}
 A continuación se presenta la forma para declarar un LinkedList:
-
-Vector<[Tipo de dato]> [Identificador] = new Vector<[Tipo de dato]>([Tamaño]);
+\begin{center}
+    $Vector<[Tipo de dato]> [Identificador] = new Vector<[Tipo de dato]>([Tamaño]);$
+\end{center}
 
 Donde se tiene que:
-Tipo de dato: se definirá el tipo de dato contendrá cada uno de los elementos del Vector.
-Identificador: se definirá su nombre.
-Tamaño: se le designará el tamaño que tendrá.
+\begin{itemize}
+    \item \textbf{Tipo de dato:} se definirá el tipo de dato contendrá cada uno de los elementos del Vector.
+    \item \textbf{Identificador:} se definirá su nombre.
+    \item \textbf{Tamaño:} se le designará el tamaño que tendrá.
+\end{itemize}
 
 \section*{Métodos principales de Vector}
-add():
-Nos permite añadir un elemento especificado al final de un vector creado, todo esto mediante el aumento del tamaño del vector por 1.
+\begin{itemize}
+    \item \textbf{add():} Nos permite añadir un elemento especificado al final de un vector creado, todo esto mediante el aumento del tamaño del vector por 1.
 
-add(int index, Object):
-El método inserta un elemento en un índice especificado en el vector, de forma que desplaza el elemento que se encuentra actualmente en esa posición, y cualquier elemento posterior a la derecha.
+    \item \textbf{add(int index, Object):} El método inserta un elemento en un índice especificado en el vector, de forma que desplaza el elemento que se encuentra actualmente en esa posición, y cualquier elemento posterior a la derecha.
 
-Ejemplo:
-Vector<String> vec_tor = new Vector<String>();
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    Vector<String> vec_tor = new Vector<String>();
 
-vec_tor.add("Hola, ");
-vec_tor.add("esto es ");
-vec_tor.add(“otra prueba :) ");
-vec_tor.add(1,“ ¿Cómo estás? ”);
+    vec_tor.add("Hola, ");
+    vec_tor.add("esto es ");
+    vec_tor.add("otra prueba :) ");
+    vec_tor.add(1, " ¿Como estas? ");
+    \end{lstlisting}
 
+    \item \textbf{clear():} Se utiliza para eliminar todos los elementos de un vector, es necesario mencionar que el método solo borra los elementos mas no el vector.
 
-clear():
-Se utiliza para eliminar todos los elementos de un vector, es necesario mencionar que el método solo borra los elementos mas no el vector.
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    Vector<String> vec_tor = new Vector<String>();
 
-Ejemplo:
-Vector<String> vec_tor = new Vector<String>();
+    vec_tor.add("Hola, ");
+    vec_tor.add("esto es ");
+    vec_tor.add("otra prueba :) ");
 
-vec_tor.add("Hola, ");
-vec_tor.add("esto es ");
-vec_tor.add(“otra prueba :) ");
+    vec_tor.clear();
 
-vec_tor.clear();
+    System.out.println("El vector se encuentra vacío: " + vec_tor);
+    \end{lstlisting}
 
-System.out.println("El vector se encuentra vacío: " + vec_tor);
+    \item \textbf{remove():} Nos permite eliminar un elemento de un vector mediante una posición o índice dado.
 
-remove():
-Nos permite eliminar un elemento de un vector mediante una posición o índice dado.
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    Vector<String> vec_tor = new Vector<String>();
 
-Ejemplo:
-Vector<String> vec_tor = new Vector<String>();
+    vec_tor.add("Hola, ");
+    vec_tor.add("esto es ");
+    vec_tor.add("otra prueba :) ");
 
-vec_tor.add("Hola, ");
-vec_tor.add("esto es ");
-vec_tor.add(“otra prueba :) ");
+    vec_tor.remove(2);
+    \end{lstlisting}
 
-vec_tor.remove(2);
+    \item \textbf{contains():} Nos permite verificar si un elemento en específico se encuentra en el vector. Como parámetros se le da un elemento del tipo de vector por buscar. Retorna verdadero en caso de encontrar el elemento, caso contrario devuelve falso.
 
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    Vector<String> vec_tor = new Vector<String>();
 
-contains():
-Nos permite verificar si un elemento en específico se encuentra en el vector. Como parámetros se le da un elemento del tipo de vector por buscar. Retorna verdadero en caso de encontrar el elemento, caso contrario devuelve falso.
+    vec_tor.add("Bienvenidos ");
+    vec_tor.add("sean ");
+    vec_tor.add("todos ");
 
-Ejemplo:
-Vector<String> vec_tor = new Vector<String>();
+    if(vec_tor.contains(":)”) == true){
+        System.out.println("El elemento esta en el vector :) ");
+    }
+    else{
+	   System.out.println("El elemento no esta en el vector :( ");
+    }
+    \end{lstlisting}
 
-vec_tor.add("Bienvenidos ");
-vec_tor.add("sean ");
-vec_tor.add(“todos ");
+    \item \textbf{size():} Se utiliza para conocer el tamaño o el número de elementos presentes en el vector. No necesita de un parámetro para su funcionamiento. Retorna el tamaño o la cantidad de elementos en el vector.
 
-if(vec_tor.contains(“:)”) == true){
-System.out.println("El elemento está en el vector :) ");
-}
-else{
-	System.out.println("El elemento no está en el vector :( ");
-}
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    Vector<Integer> vec_tor = new Vector<Integer>();
 
+    vec_tor.add(15);
+    vec_tor.add(4);
+    vec_tor.add(98);
+    vec_tor.add(32);
 
-size():
-Se utiliza para conocer el tamaño o el número de elementos presentes en el vector. No necesita de un parámetro para su funcionamiento. Retorna el tamaño o la cantidad de elementos en el vector.
+    System.out.println("Tamano del vector:  " + vec_tor.size());
+    \end{lstlisting}
+    
+    \item \textbf{indexOfObject():} Nos permite verificar y encontrar la ocurrencia de un elemento dentro del vector. Como parámetro se envía el elemento del tipo vector. Si el elemento está presente, se devuelve el índice de su primera aparición en el vector, en caso contrario devuelve -1.
+    
+    Ejemplo:
+    \lstset{language = Java, breaklines=true, basicstyle=\footnotesize}
+    \begin{lstlisting}[frame=single]
+    Vector<Integer> vec_tor = new Vector<Integer>();
 
-Ejemplo:
-Vector<Integer> vec_tor = new Vector<Integer>();
+    vec_tor.add(15);
+    vec_tor.add(4);
+    vec_tor.add(98);
+    vec_tor.add(32);
+    vec_tor.add(4);
 
-vec_tor.add(15);
-vec_tor.add(4);
-vec_tor.add(98);
-vec_tor.add(32);
-
-System.out.println("Tamaño del vector:  " + vec_tor.size());
-
-
-indexOfObject():
-Nos permite verificar y encontrar la ocurrencia de un elemento dentro del vector. Como parámetro se envía el elemento del tipo vector. Si el elemento está presente, se devuelve el índice de su primera aparición en el vector, en caso contrario devuelve -1.
-
-Ejemplo:
-Vector<Integer> vec_tor = new Vector<Integer>();
-
-vec_tor.add(15);
-vec_tor.add(4);
-vec_tor.add(98);
-vec_tor.add(32);
-vec_tor.add(4);
-
-System.out.println("Indice de la primera aparición del elemento 4: :"+ vec_tor.indexOf(4));
+    System.out.println("Indice de la primera aparicion del elemento 4: :"+ vec_tor.indexOf(4));
+    \end{lstlisting}
+\end{itemize}
 
 \section*{Stack (Pila):}
 En el marco de Java Collection, se proporciona la clase Stack (Pila) que modela e implementa una estructura de datos Stack. Un Stack es una estructura de datos lineal que solo tienen un único punto de acceso fijo por el cual se añaden, eliminan o se consultan elementos. El modo de acceso a los elementos es de tipo LIFO ( Last In First Out, último en entrar, primero en salir).
