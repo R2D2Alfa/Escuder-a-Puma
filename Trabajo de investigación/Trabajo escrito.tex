@@ -205,7 +205,7 @@ Donde se tiene que:
     \end{lstlisting}
 \end{itemize}
 
-\section*{Lista enlazada (Linked List)}
+\section{Lista enlazada (Linked List)}
 La lista vinculada o Linked List, es una secuencia de vinculos que contiene elementos. Cada enlace contiene una conexion a otro enlace.
 
 La clase LinkedList en Java utiliza 2 tipos de listas vinculadas para almacenar los elementos:
@@ -366,7 +366,7 @@ Donde se tiene que:
     
 \end{itemize}
 
-\section*{Vectores (Vector):}
+\section{Vectores (Vector):}
 Para el caso de los vectores, estos llegan a ser semejantes a las matrices, donde en ellos se puede acceder a los elementos del objeto vectorial, esto por medio de un indice en el vector. Como tal, el vector implementa una matriz dinamica, como tambien, dicho vector no limita su tamano.
 
 Si nos damos cuenta, el vector es similar a ArrayList, pero con 2 diferencias:
@@ -413,7 +413,7 @@ Donde se tiene que:
     vec_tor.add("Hola, ");
     vec_tor.add("esto es ");
     vec_tor.add("otra prueba :) ");
-    vec_tor.add(1, " ¿Como estas? ");
+    vec_tor.add(1, " . Como estas? ");
     \end{lstlisting}
 
     \item \textbf{clear():} Se utiliza para eliminar todos los elementos de un vector, es necesario mencionar que el metodo solo borra los elementos mas no el vector.
@@ -457,7 +457,7 @@ Donde se tiene que:
     vec_tor.add("sean ");
     vec_tor.add("todos ");
 
-    if(vec_tor.contains(":)”) == true){
+    if(vec_tor.contains(":)") == true){
         System.out.println("El elemento esta en el vector :) ");
     }
     else{
@@ -917,7 +917,7 @@ Donde se tiene que:
     set.add(42);
     set.add(30);
 
-    System.out.println("¿El conjunto contiene al 99? "+ set.contains(99));
+    System.out.println("El conjunto contiene al 99? "+ set.contains(99));
 
     TreeSet<Integer> set_2 = new TreeSet<Integer>();
 
@@ -926,7 +926,7 @@ Donde se tiene que:
     set_2.add(42);
     set_2.add(30);
 
-    System.out.println("¿El conjunto 1 contiene al conjunto 2?  "+ set.containsAll(set_2));
+    System.out.println("El conjunto 1 contiene al conjunto 2?  "+ set.containsAll(set_2));
     \end{lstlisting}
 
     \item \textbf{isEmpty():} Permite comprobar y verificar si un TreeSet se encuentra vacio. Retorna verdadero si el TreeSet esta vacio, en caso contrario devuelve falso.
