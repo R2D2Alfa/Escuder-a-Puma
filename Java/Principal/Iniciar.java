@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.LinkedList;
 
 
@@ -129,10 +128,9 @@ public class Iniciar {
         LinkedList<Corredores> corredores_williams = new LinkedList<Corredores>();
         
         Corredores williams_1 = new Corredores("Paises Bajos", "Nyck", "Vries", 45, 75, 1.74f);
-        Corredores williams_2 = new Corredores("Tailandia", "Alexander", "Albon", 23, 74, 1.86f);
-        
-        Escuderias escuderia_williams = new Escuderias("Williams", corredores_williams);
+        Corredores williams_2 = new Corredores("Tailandia", "Alexander", "Albon", 23, 74, 1.86f);   
 
+        Escuderias escuderia_williams = new Escuderias("Williams", corredores_williams);
 
 
         //Escuderia Mercedes
@@ -214,5 +212,6 @@ public class Iniciar {
         Corredores haas_2 = new Corredores("Dinamarca", "Kevin", "Magnussen", 20, 68, 1.74f);
 
         Escuderias escuderia_haas = new Escuderias("Haas", corredores_haas);
+        
     }
 }
