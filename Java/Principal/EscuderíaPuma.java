@@ -29,7 +29,7 @@ public class EscuderíaPuma {
         while(!salir){
             System.out.println("\n\t[ Menu del simulador ]");
             System.out.println("(1) - Crear un campeonato nuevo");
-            System.out.println("(2) - Ver pilotos actuales y campeonatos anteriores");
+            System.out.println("(2) - Ver campeonatos anteriores");
             System.out.println("(3) - Salir");
             System.out.print("\nSeleecione una opcion: ");
             principal = sc.nextInt();
@@ -77,7 +77,8 @@ public class EscuderíaPuma {
 
 
                 case 2:
-                    System.out.println("\n\t[ Ver pilotos actuales y campeonatos anteriores ]");
+                    System.out.println("\n\t[ Ver campeonatos anteriores ]");
+                    
                 break;
 
 
