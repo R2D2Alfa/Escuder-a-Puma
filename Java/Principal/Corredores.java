@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.Scanner;
 
 
@@ -88,24 +89,22 @@ public class Corredores {
     public static Corredores crearCorredor(){
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("\n\t[ Creacion del corredor ]");
-
-        System.out.print("\nIngrese la nacionalidad del corredor: ");
+        System.out.print("\nIngrese la nacionalidad: ");
         String nacionalidad = sc.nextLine();
 
-        System.out.print("\nIngrese el nombre del corredor: ");
+        System.out.print("\nIngrese el nombre: ");
         String nombre = sc.nextLine();
 
-        System.out.print("\nIngrese el apellido del corredor: ");
+        System.out.print("\nIngrese el apellido: ");
         String apellido = sc.nextLine();
 
-        System.out.print("\nIngrese el numero del corredor: ");
+        System.out.print("\nIngrese el numero: ");
         int numero = Integer.parseInt(sc.nextLine());
 
-        System.out.print("\nIngrese el peso del corredor: ");
+        System.out.print("\nIngrese el peso (kg): ");
         int peso = Integer.parseInt(sc.nextLine());
 
-        System.out.print("\nIngrese la estatura del corredor: ");
+        System.out.print("\nIngrese la estatura (m): ");
         float estatura = Float.parseFloat(sc.nextLine());
 
         Corredores corredor = new Corredores(nacionalidad, nombre, apellido, numero, peso, estatura);
