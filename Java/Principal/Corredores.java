@@ -1,6 +1,4 @@
-import java.util.LinkedList;
 import java.util.Scanner;
-
 
 public class Corredores {
     //Atributos
@@ -10,7 +8,6 @@ public class Corredores {
     int numero;
     int peso;
     float estatura;
-
 
     //Constructor
     public Corredores(String nacionalidad, String nombre, String apellido, int numero, int peso, float estatura){
@@ -22,68 +19,55 @@ public class Corredores {
         this.estatura = estatura;
     }
 
-
     //Getters
     public String getNacionalidad() {
         return nacionalidad;
     }
 
-
     public String getNombre() {
         return nombre;
     }
-
 
     public String getApellido() {
         return apellido;
     }
 
-
     public int getNumero() {
         return numero;
     }
-
 
     public int getPeso() {
         return peso;
     }
 
-
     public float getEstatura() {
         return estatura;
     }
-
 
     //Setters
     public void setNacionalidad(String nacionalidad) {
         this.nacionalidad = nacionalidad;
     }
 
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
 
-
     public void setNumero(int numero) {
         this.numero = numero;
     }
-
 
     public void setPeso(int peso) {
         this.peso = peso;
     }
 
-
     public void setEstatura(float estatura) {
         this.estatura = estatura;
     }
-
 
     //Metodos adicionales
     public static Corredores crearCorredor(){
@@ -110,5 +94,12 @@ public class Corredores {
         Corredores corredor = new Corredores(nacionalidad, nombre, apellido, numero, peso, estatura);
 
         return corredor;
+    }
+
+    public static void verInfoCorredor(Corredores corredor){
+        System.out.println("\n"+corredor.getNumero()+" - "+corredor.getNombre()+" "+corredor.getApellido());
+        System.out.println("Nacionalidad: "+corredor.getNacionalidad());
+        System.out.println("Peso: "+corredor.getPeso()+" kg");
+        System.out.println("Estatura: "+corredor.getEstatura()+" m");  
     }
 }

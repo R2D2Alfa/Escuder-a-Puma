@@ -1,12 +1,10 @@
 import java.util.Scanner;
 import java.util.LinkedList;
 
-
 public class Escuderias {
     //Atributos
     String nombre_escuderia;
     LinkedList<Corredores> corredores = new LinkedList<>();
-
 
     //Constructor
     public Escuderias(String nombre_escuderia, LinkedList<Corredores> corredores){
@@ -14,33 +12,26 @@ public class Escuderias {
         this.corredores = corredores;
     }
 
-
     //Getters
     public String getNombre_escuderia() {
         return nombre_escuderia;
     }
 
-
     public LinkedList<Corredores> getCorredores() {
         return corredores;
     }
-
 
     //Setters
     public void setNombre_escuderia(String nombre_escuderia) {
         this.nombre_escuderia = nombre_escuderia;
     }
 
-
     public void setCorredores(LinkedList<Corredores> corredores) {
         this.corredores = corredores;
     }
 
-
     //Metodos adicionales
-    public static Escuderias crearEscuderia(){
-        System.out.println("\n\t[ Creacion de la escuderia ]");
-
+    public static Escuderias crearCorredoresEscuderia(){
         Scanner sc = new Scanner(System.in);
 
         System.out.print("\nIngresar el nombre de la escuderia: ");
@@ -59,25 +50,23 @@ public class Escuderias {
         return escuderia;
     }
 
-
     public static void verCorredoresEscuderias(LinkedList<Escuderias> escuderias){
         for(int i=0; i<escuderias.size(); i++){
-            System.out.println("\t( Escuderia - "+(escuderias.get(i).getNombre_escuderia())+" )\n");
-            System.out.println("Corredores: ");
+            System.out.println("\t[ Escuderia - "+(escuderias.get(i).getNombre_escuderia())+" ]\n");
+            
+            System.out.println("( Corredores )");
+
             for(int j=0; j<escuderias.get(i).corredores.size(); j++){
-                System.out.println("\n"+escuderias.get(i).corredores.get(j).getNumero()+" - "+escuderias.get(i).corredores.get(j).getNombre()+" "+escuderias.get(i).corredores.get(j).getApellido());
-                System.out.println("Nacionalidad: "+escuderias.get(i).corredores.get(j).getNacionalidad());
-                System.out.println("Peso: "+escuderias.get(i).corredores.get(j).getPeso()+" kg");
-                System.out.println("Estatura: "+escuderias.get(i).corredores.get(j).getEstatura()+" m");        
+                Corredores.verInfoCorredor(escuderias.get(i).corredores.get(j));      
             }
+
             System.out.println("\n-----------------------------------------------------------");  
         }
     }
 
-
     public static void verEscuderias(LinkedList<Escuderias> escuderias){
         for(int i=0; i<escuderias.size(); i++){
-            System.out.println("\n Escuderia ("+(i+1)+"): "+escuderias.get(i).getNombre_escuderia());
+            System.out.println("\nEscuderia "+(i+1)+": "+escuderias.get(i).getNombre_escuderia());
         }
     }
 }
