@@ -1,6 +1,5 @@
-import java.util.LinkedList;
-import java.util.Scanner;
-import java.util.Random;
+import java.security.Key;
+import java.util.*;
 
 public class EscuderíaPuma {
     public static void main(String[] args){
@@ -8,14 +7,14 @@ public class EscuderíaPuma {
         boolean salir = false, salircamp = false, salirinfo = false;
     
         //Para las pistas, corredores, escuderias, carreras y campeonato de la F1
-        LinkedList<Pistas> pistas_f1 = new LinkedList<>();
-        LinkedList<Escuderias> escuderias_f1 = new LinkedList<>();
-        LinkedList<Carreras> carreras_f1 = new LinkedList<>();
         
+        LinkedList<Escuderias> escuderias_f1 = new LinkedList<>();
+        HashMap<Integer, Carreras> carreras_f1 = new HashMap<Integer, Carreras>();
+        TreeMap<Integer, Corredores> campeonatoTree = new TreeMap<Integer, Corredores>();
         //Se inician las pistas, escuderias y carreras establecidas
-        pistas_f1 = Iniciar.iniciarPistas();
         escuderias_f1 = Iniciar.iniciarEscuderias();
-        carreras_f1 = Iniciar.iniciarCarreras(escuderias_f1);
+        carreras_f1 = Iniciar.iniciarCampeonato(escuderias_f1);
+        campeonatoTree = Simulacion.posiciones();
         //campeonato_f1 = Iniciar.iniciarCampeonato(escuderias_f1); PENDIENTE
     
         //Inicio del menu para el simulador
@@ -48,27 +47,45 @@ public class EscuderíaPuma {
                     //Menu secundario
                     while(!salircamp){
                         System.out.println("\n\t[ Crear un campeonato nuevo ]");
-                        System.out.println("(1) - Crear corredores con escuderia");
-                        System.out.println("(2) - Crear una carrera");
-                        System.out.println("(3) - Modificar calendario de una carrera");
-                        System.out.println("(4) - Salir");
+                        System.out.println("(1) - Iniciar campeonato");
+                        System.out.println("(2) - Crear corredores con escuderia");
+                        System.out.println("(3) - Crear corredores en escudería existente");
+                        System.out.println("(4) - Crear una carrera");
+                        System.out.println("(5) - Modificar calendario de una carrera");
+                        System.out.println("(6) - Salir");
                         System.out.print("\nSeleecione una opcion: ");
                         int campeonato = sc.nextInt();
                         
                         switch (campeonato){
                             case 1:
+                                Integer a, i;
+                                System.out.println("Aqui se hará el campeonato");
+                                Integer[] array = new Integer[campeonatoTree.size()];
+                                Set<Integer> keys = campeonatoTree.keySet();
+                                array = keys.toArray(array);
+                                for(a=0; a<campeonatoTree.size(); a++){
+                                    System.out.println(campeonatoTree.get((array[a])).apellido);
+                                }
+                            break;
+                            case 2:
                                 //Crear corredores con escuderia 
                                 Escuderias nueva_escuderia = Escuderias.crearCorredoresEscuderia();
                                 escuderias_f1.add(nueva_escuderia);  
                             break;
-
-                            case 2:
-                                //Crear pistas
-                                Carreras carrera_nueva = Carreras.crearCarrera(escuderias_f1);
-                                carreras_f1.add(carrera_nueva);
-                            break;
-
                             case 3:
+                                System.out.println("Ingrese en que escudería desea crear el corredor");
+                                Escuderias.verCorredoresEscuderias(escuderias_f1);
+                                int nuevoCorredor = sc.nextInt();
+                                Escuderias.crearCorredoresEscuderia();
+                            break;
+                            case 4:
+                                //Crear carrera
+                                int longitud;
+                                Carreras carrera_nueva = Carreras.crearCarrera(escuderias_f1);
+                                longitud = carreras_f1.size();
+                                carreras_f1.put(longitud+1, carrera_nueva);
+                            break;
+                            case 5:
                                 //Calendario de las carreras
                                 Carreras.verCarreras(carreras_f1); 
                                 
@@ -77,13 +94,15 @@ public class EscuderíaPuma {
 
                                 System.out.println("\n-----------------------------------------------------------");
 
-                                CalendarioCarreras nueva_fecha = CalendarioCarreras.crearCalendarioCarrera();
+                                CalendarioCarreras nueva_fecha = CalendarioCarreras.crearCalendarioCarrera(carreras_f1);
                                 carreras_f1.get(selec_carrera_fecha).setFecha_carrera(nueva_fecha);
                             break;
-
-                            case 4:
+                            case 6:
                                 //Salir
                                 salircamp = true;
+                            break;
+                            default:    
+                                System.out.println("Opción no valida, ingrese un numero del 1 al 6");
                             break;
                         }
                     }

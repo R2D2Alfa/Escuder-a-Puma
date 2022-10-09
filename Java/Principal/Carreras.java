@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.HashMap;
 import java.util.LinkedList;
 
 public class Carreras {
@@ -53,13 +54,17 @@ public class Carreras {
     //Metodos adicionales
     public static Carreras crearCarrera(LinkedList<Escuderias> escuderias){
         Scanner sc = new Scanner(System.in);
+        LinkedList<Escuderias> escuderias_f1 = new LinkedList<>();
+        escuderias_f1 = Iniciar.iniciarEscuderias();
+        HashMap<Integer, Carreras> carreras_f1 = new HashMap<Integer, Carreras>();
+        carreras_f1 = Iniciar.iniciarCampeonato(escuderias_f1);
 
         System.out.println("\n\t[ Creacion de la carrera ]");
 
         System.out.print("\nIngrese el nombre de la carrera: ");
         String nombre_carrera = sc.nextLine();
 
-        CalendarioCarreras fecha_carrera = CalendarioCarreras.crearCalendarioCarrera();
+        CalendarioCarreras fecha_carrera = CalendarioCarreras.crearCalendarioCarrera(carreras_f1);
 
         Pistas pista = Pistas.crearPista();
 
@@ -68,11 +73,11 @@ public class Carreras {
         return carrera;
     }
 
-    public static void verCarreras(LinkedList<Carreras> carreras){
+    public static void verCarreras(HashMap<Integer, Carreras> carreras){
         
         System.out.println("\n-----------------------------------------------------------"); 
 
-        for(int i=0; i<carreras.size(); i++){
+        for(int i=1; i<carreras.size(); i++){
             System.out.println("\n\t[ Carrera "+(i+1)+": "+carreras.get(i).getNombre_carrera()+" ]");
 
             carreras.get(i).fecha_carrera.verfechacarrera();

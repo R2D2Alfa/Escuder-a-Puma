@@ -1,6 +1,8 @@
 //Ajuste para mejorar la forma de manejar las fechas
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.Scanner;
+import java.util.LinkedList;
 
 public class CalendarioCarreras {
     //Atributos
@@ -39,8 +41,12 @@ public class CalendarioCarreras {
     }
 
     //Metodos adicionales
-    public static CalendarioCarreras crearCalendarioCarrera(){
+    public static CalendarioCarreras crearCalendarioCarrera (HashMap<Integer, Carreras> carreras_f1){
+        int i;
         Scanner sc = new Scanner(System.in);
+        LinkedList<Escuderias> escuderias_f1 = new LinkedList<>();
+        escuderias_f1 = Iniciar.iniciarEscuderias();
+        carreras_f1 = Iniciar.iniciarCampeonato(escuderias_f1);
 
         System.out.println("\n\t( crea un nuevo calendario para la carrera )");
 
@@ -52,7 +58,14 @@ public class CalendarioCarreras {
 
         CalendarioCarreras carrera_calendario = new CalendarioCarreras(inicio, fin);
 
+        for(i=1; i<=carreras_f1.size(); i++){
+            while(carreras_f1.get(i).fecha_carrera.equals(carrera_calendario)){
+                System.out.println("Esa fecha ya la tiene otra carrera, ingrese una fecha valida");
+                crearCalendarioCarrera(carreras_f1);
+            } 
+        }
         return carrera_calendario;
+        
     }
 
     public void verfechacarrera(){
