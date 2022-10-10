@@ -1,6 +1,8 @@
 import java.security.Key;
 import java.util.*;
 
+import javax.security.auth.login.CredentialException;
+
 public class EscuderíaPuma {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
@@ -10,16 +12,16 @@ public class EscuderíaPuma {
         
         LinkedList<Escuderias> escuderias_f1 = new LinkedList<>();
         HashMap<Integer, Carreras> carreras_f1 = new HashMap<Integer, Carreras>();
-        TreeMap<Integer, Corredores> campeonatoTree = new TreeMap<Integer, Corredores>();
+        LinkedList<Posiciones> posicion = new LinkedList<Posiciones>();
+        LinkedList<CorrerCarrera> campeonato = new LinkedList<CorrerCarrera>();
         //Se inician las pistas, escuderias y carreras establecidas
         escuderias_f1 = Iniciar.iniciarEscuderias();
         carreras_f1 = Iniciar.iniciarCampeonato(escuderias_f1);
-        campeonatoTree = Simulacion.posiciones();
         //campeonato_f1 = Iniciar.iniciarCampeonato(escuderias_f1); PENDIENTE
     
         //Inicio del menu para el simulador
-        System.out.println("\t         ################# #####");
-        System.out.println("\t      ################### #####");
+        System.out.println("\t          ################# #####");
+        System.out.println("\t       ################### #####");
         System.out.println("\t      #####               #####");
         System.out.println("\t     #####   ########### #####");
         System.out.println("\t    ##### ############# #####");
@@ -54,18 +56,36 @@ public class EscuderíaPuma {
                         System.out.println("(5) - Modificar calendario de una carrera");
                         System.out.println("(6) - Salir");
                         System.out.print("\nSeleecione una opcion: ");
-                        int campeonato = sc.nextInt();
+                        int menu_principal = sc.nextInt();
                         
-                        switch (campeonato){
+                        switch (menu_principal){
                             case 1:
-                                Integer a, i;
+                                int i, x=0, j;
                                 System.out.println("Aqui se hará el campeonato");
-                                Integer[] array = new Integer[campeonatoTree.size()];
-                                Set<Integer> keys = campeonatoTree.keySet();
-                                array = keys.toArray(array);
-                                for(a=0; a<campeonatoTree.size(); a++){
-                                    System.out.println(campeonatoTree.get((array[a])).apellido);
+                                for(i=0; i<carreras_f1.size(); i++){
+                                    while(x==0){
+                                        System.out.println(" \n");
+                                        System.out.println(" \n");
+                                        posicion = Simulacion.posiciones(escuderias_f1, carreras_f1);
+                                        CorrerCarrera carreras = new CorrerCarrera(posicion, carreras_f1);
+                                        campeonato.add(carreras);
+                                        System.out.println(campeonato.get(i).carreras_f1.get(i+1).getNombre_carrera());
+                                        System.out.println("Fecha de inicio: " + campeonato.get(i).carreras_f1.get(i+1).getFecha_carrera().fechainicio 
+                                                        +"  Fecha de cierre: " + campeonato.get(i).carreras_f1.get(i+1).getFecha_carrera().fechafinal);
+                                        for(j=0; j<campeonato.get(i).posiciones.size(); j++){
+                                            System.out.println(campeonato.get(i).posiciones.get(j).posicion + "  "
+                                            +campeonato.get(i).posiciones.get(j).corredores.getApellido()+ " " + 
+                                            campeonato.get(i).posiciones.get(j).corredores.getNombre() + " Nacionalidad: " 
+                                            + campeonato.get(i).posiciones.get(j).corredores.getNacionalidad() + " Puntos: " 
+                                            + campeonato.get(i).posiciones.get(j).puntos);
+                                        }
+                                        System.out.println(" \n");
+                                        System.out.println("Si desea avanzar a la siguiente carrera ingrese un numero diferente a 0");
+                                        x = sc.nextInt();
+                                    }
+                                    x=0;
                                 }
+                                
                             break;
                             case 2:
                                 //Crear corredores con escuderia 
