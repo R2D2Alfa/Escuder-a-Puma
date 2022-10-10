@@ -78,20 +78,16 @@ public class Carreras {
         System.out.println("\n-----------------------------------------------------------"); 
 
         for(int i=1; i<carreras.size(); i++){
-            System.out.println("\n\t[ Carrera "+(i+1)+": "+carreras.get(i).getNombre_carrera()+" ]");
+            System.out.println("\n\t[ Carrera "+(i+1)+": "+carreras.get(i+1).getNombre_carrera()+" ]");
 
-            carreras.get(i).fecha_carrera.verfechacarrera();
+            carreras.get(i+1).fecha_carrera.verfechacarrera();
 
             System.out.println();
 
-            carreras.get(i).pista.verPista();
+            carreras.get(i+1).pista.verPista();
 
             System.out.println("\n-----------------------------------------------------------"); 
         }
-    }
-
-    public static void verCarrera(Carreras carrera){
-        System.out.println("\n\t[ Carrera "+carrera.getNombre_carrera()+"]");
     }
 }
     

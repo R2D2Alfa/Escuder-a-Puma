@@ -1,6 +1,5 @@
 import java.security.Key;
 import java.util.*;
-
 import javax.security.auth.login.CredentialException;
 
 public class EscuderíaPuma {
@@ -9,15 +8,14 @@ public class EscuderíaPuma {
         boolean salir = false, salircamp = false, salirinfo = false;
     
         //Para las pistas, corredores, escuderias, carreras y campeonato de la F1
-        
         LinkedList<Escuderias> escuderias_f1 = new LinkedList<>();
         HashMap<Integer, Carreras> carreras_f1 = new HashMap<Integer, Carreras>();
         LinkedList<Posiciones> posicion = new LinkedList<Posiciones>();
         LinkedList<CorrerCarrera> campeonato = new LinkedList<CorrerCarrera>();
+        
         //Se inician las pistas, escuderias y carreras establecidas
         escuderias_f1 = Iniciar.iniciarEscuderias();
         carreras_f1 = Iniciar.iniciarCampeonato(escuderias_f1);
-        //campeonato_f1 = Iniciar.iniciarCampeonato(escuderias_f1); PENDIENTE
     
         //Inicio del menu para el simulador
         System.out.println("\t          ################# #####");
@@ -36,22 +34,21 @@ public class EscuderíaPuma {
         while(!salir){
             System.out.println("\n\t[ Menu del simulador ]");
             System.out.println("(1) - Crear un campeonato");
-            System.out.println("(2) - Iniciar una carrera");
-            System.out.println("(3) - Consultar carreras anteriores");
-            System.out.println("(4) - Finalizar campeonato");
-            System.out.println("(5) - Ver info. General (Corredores, Escuderias, Carreras y Campeonatos)");
-            System.out.println("(6) - Salir");
+            System.out.println("(2) - Consultar carreras anteriores");
+            System.out.println("(3) - Finalizar campeonato");
+            System.out.println("(4) - Ver info. General (Corredores, Escuderias, Carreras y Campeonatos)");
+            System.out.println("(5) - Salir");
             System.out.print("\nSeleecione una opcion: ");
             int principal = sc.nextInt();
             
             switch (principal){
                 case 1:
-                    //Menu secundario
-                    while(!salircamp){
+                while(!salircamp){
+                        //Menu secundario 
                         System.out.println("\n\t[ Crear un campeonato nuevo ]");
                         System.out.println("(1) - Iniciar campeonato");
                         System.out.println("(2) - Crear corredores con escuderia");
-                        System.out.println("(3) - Crear corredores en escudería existente");
+                        System.out.println("(3) - Crear corredor en escudería existente");
                         System.out.println("(4) - Crear una carrera");
                         System.out.println("(5) - Modificar calendario de una carrera");
                         System.out.println("(6) - Salir");
@@ -60,18 +57,30 @@ public class EscuderíaPuma {
                         
                         switch (menu_principal){
                             case 1:
-                                int i, x=0, j;
-                                System.out.println("Aqui se hará el campeonato");
+                                //Iniciar campeonato
+                                int i, j, avanzar_carrera=0;
+                                System.out.println("\n\t[ Escuderias que participan en el campeonato ]");
+                    
+                                Escuderias.verEscuderias(escuderias_f1);
+
+                                System.out.println("\n-----------------------------------------------------------");
+
+                                System.out.println("\nHa iniciado el campeonato F1, buena suerte a todos :)");
+
                                 for(i=0; i<carreras_f1.size(); i++){
-                                    while(x==0){
-                                        System.out.println(" \n");
-                                        System.out.println(" \n");
+                                    
+                                    while(avanzar_carrera==0){
+                                        System.out.println("\n-----------------------------------------------------------");
+                            
                                         posicion = Simulacion.posiciones(escuderias_f1, carreras_f1);
-                                        CorrerCarrera carreras = new CorrerCarrera(posicion, carreras_f1);
+                                        CorrerCarrera carreras = new CorrerCarrera(posicion, carreras_f1); 
                                         campeonato.add(carreras);
-                                        System.out.println(campeonato.get(i).carreras_f1.get(i+1).getNombre_carrera());
+
+                                        System.out.println("\t[ Carrera No. "+(i+1)+" - "+campeonato.get(i).carreras_f1.get(i+1).getNombre_carrera()+" ]\n");
                                         System.out.println("Fecha de inicio: " + campeonato.get(i).carreras_f1.get(i+1).getFecha_carrera().fechainicio 
-                                                        +"  Fecha de cierre: " + campeonato.get(i).carreras_f1.get(i+1).getFecha_carrera().fechafinal);
+                                                        +"  Fecha de cierre: " + campeonato.get(i).carreras_f1.get(i+1).getFecha_carrera().fechafinal+"\n");
+                                        System.out.println("Resultados de la carrera: \n");
+                                        
                                         for(j=0; j<campeonato.get(i).posiciones.size(); j++){
                                             System.out.println(campeonato.get(i).posiciones.get(j).posicion + "  "
                                             +campeonato.get(i).posiciones.get(j).corredores.getApellido()+ " " + 
@@ -79,25 +88,33 @@ public class EscuderíaPuma {
                                             + campeonato.get(i).posiciones.get(j).corredores.getNacionalidad() + " Puntos: " 
                                             + campeonato.get(i).posiciones.get(j).puntos);
                                         }
-                                        System.out.println(" \n");
-                                        System.out.println("Si desea avanzar a la siguiente carrera ingrese un numero diferente a 0");
-                                        x = sc.nextInt();
+
+                                        System.out.print("\nIngrese 1 para avanzar a la siguiente carrera: ");
+                                        avanzar_carrera = sc.nextInt();
                                     }
-                                    x=0;
+                                    avanzar_carrera=0;
                                 }
-                                
                             break;
+
                             case 2:
                                 //Crear corredores con escuderia 
                                 Escuderias nueva_escuderia = Escuderias.crearCorredoresEscuderia();
                                 escuderias_f1.add(nueva_escuderia);  
                             break;
+
                             case 3:
-                                System.out.println("Ingrese en que escudería desea crear el corredor");
+                                //Crear corredor en escudería existente 
                                 Escuderias.verCorredoresEscuderias(escuderias_f1);
-                                int nuevoCorredor = sc.nextInt();
-                                Escuderias.crearCorredoresEscuderia();
+                                
+                                System.out.print("\nIngrese en que escudería desea crear el corredor: ");
+                                int corredornuevo_selec = sc.nextInt()-1;
+
+                                Corredores corredor_nuevo = Corredores.crearCorredor();
+                                escuderias_f1.get(corredornuevo_selec).corredores.add(corredor_nuevo);
+
+                                System.out.print("\nSe ha ingresado el nuevo corredor en "+escuderias_f1.get(corredornuevo_selec).getNombre_escuderia()+"\n");
                             break;
+
                             case 4:
                                 //Crear carrera
                                 int longitud;
@@ -105,6 +122,7 @@ public class EscuderíaPuma {
                                 longitud = carreras_f1.size();
                                 carreras_f1.put(longitud+1, carrera_nueva);
                             break;
+
                             case 5:
                                 //Calendario de las carreras
                                 Carreras.verCarreras(carreras_f1); 
@@ -117,6 +135,7 @@ public class EscuderíaPuma {
                                 CalendarioCarreras nueva_fecha = CalendarioCarreras.crearCalendarioCarrera(carreras_f1);
                                 carreras_f1.get(selec_carrera_fecha).setFecha_carrera(nueva_fecha);
                             break;
+
                             case 6:
                                 //Salir
                                 salircamp = true;
@@ -127,35 +146,33 @@ public class EscuderíaPuma {
                         }
                     }
                 break;
-                
+
                 case 2:
-                    //Iniciar una carrera 
-                    System.out.println("\n\t[ Escuderias que participan ]");
-                    
-                    Escuderias.verEscuderias(escuderias_f1);
-                    
+                    //Consultar carreras anteriores 
                     Carreras.verCarreras(carreras_f1);
-                    
-                    System.out.print("\nSeleecione una carrera para iniciar: ");
-                    int selec_carrera = sc.nextInt()-1;
-                    
-                    System.out.println("\n-----------------------------------------------------------"); 
-                    
-                    System.out.println("\nHa iniciado la carrera '"+carreras_f1.get(selec_carrera).getNombre_carrera()+"' buena suerte a todos :)");
-                    
-                    //PENDIENTE
+                    System.out.print("\nIngrese la carrera por consultar: ");
+                    int carrera_consulta = sc.nextInt()-1;
+
+                    System.out.println("\nHa seleccionado la carrera '"+carreras_f1.get(carrera_consulta).getNombre_carrera()+"'");
+
+                    System.out.println("\nResultados de la carrera: \n");
+
+                    for(int i=0; i<campeonato.get(carrera_consulta).posiciones.size(); i++){
+                        System.out.println(campeonato.get(carrera_consulta).posiciones.get(i).posicion + "  "
+                        +campeonato.get(carrera_consulta).posiciones.get(i).corredores.getApellido()+ " " + 
+                        campeonato.get(carrera_consulta).posiciones.get(i).corredores.getNombre() + " Nacionalidad: " 
+                        + campeonato.get(carrera_consulta).posiciones.get(i).corredores.getNacionalidad() + " Puntos: " 
+                        + campeonato.get(carrera_consulta).posiciones.get(i).puntos);
+                    }
+
                 break;
 
                 case 3:
-                    //Consultar carreras anteriores 
+                    //Finalizar campeonato
                     //PENDIENTE
                 break;
-
-                case 4:
-                    //Finalizar campeonato
-                break;
                 
-                case 5:
+                case 4:
                     //Menu secundario
                     while(!salirinfo){
                         System.out.println("\n\t[ Ver info. General ]");
@@ -166,7 +183,6 @@ public class EscuderíaPuma {
                         System.out.print("\nSeleecione una opcion: ");
                         int informacion = sc.nextInt();
                         
-                        
                         switch (informacion){
                             case 1:
                                 //Info. Corredores y escuderias designadas 
@@ -175,6 +191,26 @@ public class EscuderíaPuma {
 
                             case 2:
                                 //Resultados de las carreras
+                                System.out.println("\nResultados de las carreras: \n");
+                                
+                                int i, j;
+                                
+                                for(i=0; i<carreras_f1.size(); i++){
+                                    System.out.println("\n-----------------------------------------------------------");
+                            
+                                    System.out.println("\t[ Carrera No. "+(i+1)+" - "+campeonato.get(i).carreras_f1.get(i+1).getNombre_carrera()+" ]\n");
+                                    System.out.println("Fecha de inicio: " + campeonato.get(i).carreras_f1.get(i+1).getFecha_carrera().fechainicio 
+                                                    +"  Fecha de cierre: " + campeonato.get(i).carreras_f1.get(i+1).getFecha_carrera().fechafinal+"\n");
+                                    System.out.println("Resultados de la carrera: \n");
+                                        
+                                    for(j=0; j<campeonato.get(i).posiciones.size(); j++){
+                                        System.out.println(campeonato.get(i).posiciones.get(j).posicion + "  "
+                                        +campeonato.get(i).posiciones.get(j).corredores.getApellido()+ " " + 
+                                        campeonato.get(i).posiciones.get(j).corredores.getNombre() + " Nacionalidad: " 
+                                        + campeonato.get(i).posiciones.get(j).corredores.getNacionalidad() + " Puntos: " 
+                                        + campeonato.get(i).posiciones.get(j).puntos);
+                                    }
+                                }
                             break;
 
                             case 3:
@@ -189,7 +225,7 @@ public class EscuderíaPuma {
                     }
                 break;
 
-                case 6:
+                case 5:
                     //Salir
                     System.out.println("\n\tHasta luego :)");
                     salir = true;

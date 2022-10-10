@@ -52,7 +52,7 @@ public class Escuderias {
 
     public static void verCorredoresEscuderias(LinkedList<Escuderias> escuderias){
         for(int i=0; i<escuderias.size(); i++){
-            System.out.println("\t[ Escuderia - "+(escuderias.get(i).getNombre_escuderia())+" ]\n");
+            System.out.println("\t[ Escuderia No. "+(i+1)+" - "+(escuderias.get(i).getNombre_escuderia())+" ]\n");
             
             System.out.println("( Corredores )");
 

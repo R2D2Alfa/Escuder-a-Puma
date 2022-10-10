@@ -155,13 +155,11 @@ public class Iniciar {
         //Mapa donde se contendra cada una de las carreras para el campeonato
         HashMap<Integer, Carreras> campeonato = new HashMap<Integer, Carreras>();
         
-
         //1.- Bahrein
         Pistas Bahrein = new Pistas("Bahrein", "Sakhir", 5412f);
         CalendarioCarreras fecha_Bahrain = new CalendarioCarreras("2022-03-18", "2022-03-20");
         Carreras bahrain_GP = new Carreras("Gulf Air Bahrein GP", fecha_Bahrain, Bahrein, escuderias);
         campeonato.put(1, bahrain_GP);
-
 
         //2.- Arabian
         Pistas Arabia = new Pistas("Arabia Saudita", "Yeda", 6175f);
@@ -169,13 +167,11 @@ public class Iniciar {
         Carreras arabiaSaudi_GP = new Carreras("STC Saudi Arabian GP", fecha_ArabiaSaudi, Arabia, escuderias);
         campeonato.put(2, arabiaSaudi_GP);
 
-
         //3.- Australia
         Pistas Australia = new Pistas("Australia", "Melbourne", 5303f);
         CalendarioCarreras fecha_Australia = new CalendarioCarreras("2022-04-08", "2022-04-10");
         Carreras australia_GP = new Carreras("Heineken Australian GP", fecha_Australia, Australia, escuderias);
         campeonato.put(3, australia_GP);
-
 
         //4.- Italia (Imola)
         Pistas Emilia = new Pistas("Italia", "Imola", 4908f);
@@ -183,13 +179,11 @@ public class Iniciar {
         Carreras emilia_GP = new Carreras("Rolex Emilia Romagna GP", fecha_Emilia, Emilia, escuderias);
         campeonato.put(4, emilia_GP);
 
-
         //5 .- Estados Unidos (Miami)
         Pistas Miami = new Pistas("Estados Unidos", "Miami", 5410f);
         CalendarioCarreras fecha_Miami = new CalendarioCarreras("2022-05-06", "2022-05-06");
         Carreras miami_GP = new Carreras("Crypto.com Miami GP", fecha_Miami, Miami, escuderias);
         campeonato.put(5, miami_GP);
-
 
         //6.- España
         Pistas España = new Pistas("España", "Barcelona", 5655f);
@@ -197,13 +191,11 @@ public class Iniciar {
         Carreras españa_GP = new Carreras("Pirelli Spanish GP", fecha_España, España, escuderias);
         campeonato.put(6, españa_GP);
 
-
         //7.- Monaco
         Pistas Monaco = new Pistas("Monaco", "Monaco", 4655f);
         CalendarioCarreras fecha_Monaco = new CalendarioCarreras("2022-05-27", "2022-05-29");
         Carreras monaco_GP = new Carreras("GP de Monaco", fecha_Monaco, Monaco, escuderias);
         campeonato.put(7, monaco_GP);
-
 
         //8.- Azerbaiyán
         Pistas Azerbaiyan = new Pistas("Azerbaiyan", "Baku", 6003f);
@@ -211,13 +203,11 @@ public class Iniciar {
         Carreras azerbaiyan_GP = new Carreras("GP de Azerbaiyan", fecha_Azerbaiyan, Azerbaiyan, escuderias);
         campeonato.put(8, azerbaiyan_GP);
 
-
         //9.- Canada
         Pistas Canada = new Pistas("Canada", "Montreal", 4361f);
         CalendarioCarreras fecha_Canada = new CalendarioCarreras("2022-06-17", "2022-06-19");
         Carreras canada_GP = new Carreras("AWS Canada GP", fecha_Canada, Canada, escuderias);
         campeonato.put(9, canada_GP);
-
 
         //10.- Gran Bretaña
         Pistas Gb = new Pistas("Gran Bretaña", "Silverstone", 5891f);
@@ -225,13 +215,11 @@ public class Iniciar {
         Carreras inglaterra_GP = new Carreras("Lenovo British GP", fecha_Inglaterra, Gb, escuderias);
         campeonato.put(10, inglaterra_GP);
 
-
         //11.- Austria
         Pistas Austria = new Pistas("Austria", "Knittelfeld", 4326f);
         CalendarioCarreras fecha_Austria = new CalendarioCarreras("2022-07-22", "2022-07-24");
         Carreras austria_GP = new Carreras("Austrian GP", fecha_Austria, Austria, escuderias);
         campeonato.put(11, austria_GP);
-
 
         //12.- Francia
         Pistas Francia = new Pistas("Francia", "Le Castellet", 5842f);
@@ -239,13 +227,11 @@ public class Iniciar {
         Carreras hungria_GP = new Carreras("Aramco Hungarian GP", fecha_Hungria, Francia, escuderias);
         campeonato.put(12, hungria_GP);
 
-
         //13.- Hungria
         Pistas Hungria = new Pistas("Hungria", "Budapest", 4381f);
         CalendarioCarreras fecha_Belgica = new CalendarioCarreras("2022-08-26", "2022-08-28");
         Carreras belgica_GP = new Carreras("Rolex Belgian GP", fecha_Belgica, Hungria, escuderias);
         campeonato.put(13, belgica_GP);
-
 
         //14.- Bélgica
         Pistas Belgica = new Pistas("Belgica", "Spa-Francorchamps", 7000.4f);
@@ -253,13 +239,11 @@ public class Iniciar {
         Carreras holanda_GP = new Carreras("Heineken Dutch GP", fecha_Holanda, Belgica, escuderias);
         campeonato.put(14, holanda_GP);
 
-
         //15.- Paises Bajos
         Pistas Holanda = new Pistas("Paises Bajos", "Zandvoort", 4259f);
         CalendarioCarreras fecha_Italia = new CalendarioCarreras("2022-09-09", "2022-09-11");
         Carreras italia_GP = new Carreras("Pirelli Italian GP", fecha_Italia, Holanda, escuderias);
         campeonato.put(15, italia_GP);
-
 
         //16.- Italia (Monza)
         Pistas Italia = new Pistas("Italia", "Monza", 5793f);
@@ -267,13 +251,11 @@ public class Iniciar {
         Carreras rusia_GP = new Carreras("VTB Russian GP", fecha_Rusia, Italia, escuderias);
         campeonato.put(16, rusia_GP);
 
-
         //17.- Singapur
         Pistas Singapur = new Pistas("Singapur", "ingapur", 5073f);
         CalendarioCarreras fecha_Singapur = new CalendarioCarreras("2022-09-30", "2022-10-02");
         Carreras singapur_GP = new Carreras("Singapore Air Singapore GP", fecha_Singapur, Singapur, escuderias);
         campeonato.put(17, singapur_GP);
-
 
         //18.- Japon
         Pistas Japon = new Pistas("Japon", "Suzaka", 5807f);
@@ -281,13 +263,11 @@ public class Iniciar {
         Carreras japon_GP = new Carreras("Heineken Dutch GP", fecha_Japon, Japon, escuderias);
         campeonato.put(18, japon_GP);
 
-
         //19.- Estados Unidos (Austin)
         Pistas Eu = new Pistas("Estados Unidos", "Austin", 5513f);
         CalendarioCarreras fecha_EU = new CalendarioCarreras("2022-10-21", "2022-10-23");
         Carreras eu_GP = new Carreras("Aramco United States GP", fecha_EU, Eu, escuderias);
         campeonato.put(19, eu_GP);
-
 
         //20.- Mexico
         Pistas Mexico = new Pistas("Mexico", "Ciudad de Mexico", 4421f);
@@ -295,20 +275,17 @@ public class Iniciar {
         Carreras mexico_GP = new Carreras("Mexico GP", fecha_Mexico, Mexico, escuderias);
         campeonato.put(20, mexico_GP);
 
-
         //21.- Brasil
         Pistas Brasil = new Pistas("Brasil", "Sao Paulo", 4309f);
         CalendarioCarreras fecha_Brasil = new CalendarioCarreras("2022-11-11", "2022-11-13");
         Carreras brasil_GP = new Carreras("Heineken Brazil GP", fecha_Brasil, Brasil, escuderias);
         campeonato.put(21, brasil_GP);
 
-
         //22.- Emiratos Arabes Unidos
         Pistas Ea = new Pistas("Emiratos Arabes Unidos", "Abu Dhabi", 5524f);
         CalendarioCarreras fecha_AbuDhabi = new CalendarioCarreras("2022-11-18", "2022-11-20");
         Carreras abuDhabi_GP = new Carreras("Heineken Dutch GP", fecha_AbuDhabi, Ea, escuderias);
         campeonato.put(22, abuDhabi_GP);
-
 
         return campeonato;
     }

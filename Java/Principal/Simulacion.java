@@ -1,24 +1,26 @@
 
 import java.util.*;
-
 import javax.naming.ldap.SortKey;
-
 import java.lang.Math;
-
 
 public class Simulacion {
 
     public static LinkedList<Posiciones> posiciones(LinkedList<Escuderias> escuderias_f1, HashMap<Integer, Carreras> carreras_f1){
         int i, j;
+
         HashMap<Integer, Corredores> posicion = new HashMap<Integer, Corredores>();
+
         LinkedList<Posiciones> posiciones = new LinkedList<Posiciones>();
+
         //Se inician las pistas, escuderias y carreras establecidas
         LinkedList<Corredores> corredores = new LinkedList<Corredores>();
+
         for(i=0; i<escuderias_f1.size();i++){
             for(j=0; j<2; j++){
                 corredores.add(escuderias_f1.get(i).corredores.get(j));
             }
         }
+
         TreeMap<Integer, Corredores> campeonato = new TreeMap<Integer, Corredores>();
 
         for(i=0; i<corredores.size(); i++){
@@ -26,12 +28,13 @@ public class Simulacion {
             campeonato.put(random, corredores.get(i));
         }
 
-        System.out.println(corredores.size());
-
         Integer[] array = new Integer[campeonato.size()];
+        
         Set<Integer> keys = campeonato.keySet();
         array = keys.toArray(array);
+        
         Integer a;
+
         for(a = 0; a<campeonato.size(); a++){
             posicion.put(a+1, campeonato.get(array[a]));
         }
@@ -92,10 +95,6 @@ public class Simulacion {
             }
             
         }
-
         return posiciones;
     }
-
-
 }
-
