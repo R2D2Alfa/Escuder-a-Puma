@@ -1,16 +1,17 @@
-
-
 public class Posiciones {
+    //Atributos
     Integer posicion;
     Corredores corredores;
     Integer puntos;
 
+    //Constructor
     public Posiciones(Integer posicion, Corredores corredores, Integer puntos){
         this.posicion = posicion;
         this.corredores = corredores;
         this.puntos = puntos;
-    }
+    }  
 
+    //Getters
     public Integer getPosicion(){
         return posicion;
     }
@@ -23,6 +24,7 @@ public class Posiciones {
         return puntos;
     }
 
+    //Setters
     public void setPosicion(Integer posicion){
         this.posicion = posicion;
     }

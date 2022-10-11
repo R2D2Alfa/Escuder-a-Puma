@@ -1,10 +1,9 @@
-
 import java.util.*;
 import javax.naming.ldap.SortKey;
 import java.lang.Math;
 
 public class Simulacion {
-
+    //Metodo para la simulacion de las posiciones
     public static LinkedList<Posiciones> posiciones(LinkedList<Escuderias> escuderias_f1, HashMap<Integer, Carreras> carreras_f1){
         int i, j;
 
