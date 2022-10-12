@@ -155,22 +155,29 @@ public class EscuderíaPuma {
                 break;
 
                 case 2:
-                    //Consultar carreras anteriores 
-                    Carreras.verCarreras(carreras_f1);
-                    System.out.print("\nIngrese la carrera por consultar: ");
-                    int carrera_consulta = sc.nextInt()-1;
-
-                    System.out.println("\nHa seleccionado la carrera '"+carreras_f1.get(carrera_consulta).getNombre_carrera()+"'");
-
-                    System.out.println("\nResultados de la carrera: \n");
-
-                    for(int i=0; i<campeonato.get(carrera_consulta).posiciones.size(); i++){
-                        System.out.println(campeonato.get(carrera_consulta).posiciones.get(i).posicion + "  "
-                        +campeonato.get(carrera_consulta).posiciones.get(i).corredores.getApellido()+ " " + 
-                        campeonato.get(carrera_consulta).posiciones.get(i).corredores.getNombre() + " Nacionalidad: " 
-                        + campeonato.get(carrera_consulta).posiciones.get(i).corredores.getNacionalidad() + " Puntos: " 
-                        + campeonato.get(carrera_consulta).posiciones.get(i).puntos);
+                    if(campeonato.size() == 0){
+                        System.out.println("No se tiene registro de un campeonato, por favor inicia uno");
+                        break;
                     }
+                    else{
+                            //Consultar carreras anteriores 
+                        Carreras.verCarreras(carreras_f1);
+                        System.out.print("\nIngrese la carrera por consultar: ");
+                        int carrera_consulta = sc.nextInt()-1;
+
+                        System.out.println("\nHa seleccionado la carrera '"+carreras_f1.get(carrera_consulta).getNombre_carrera()+"'");
+
+                        System.out.println("\nResultados de la carrera: \n");
+
+                        for(int i=0; i<campeonato.get(carrera_consulta).posiciones.size(); i++){
+                            System.out.println(campeonato.get(carrera_consulta).posiciones.get(i).posicion + "  "
+                            +campeonato.get(carrera_consulta).posiciones.get(i).corredores.getApellido()+ " " + 
+                            campeonato.get(carrera_consulta).posiciones.get(i).corredores.getNombre() + " Nacionalidad: " 
+                            + campeonato.get(carrera_consulta).posiciones.get(i).corredores.getNacionalidad() + " Puntos: " 
+                            + campeonato.get(carrera_consulta).posiciones.get(i).puntos);
+                        }
+                    }
+                    
 
                 break;
 
@@ -197,6 +204,12 @@ public class EscuderíaPuma {
                             break;
 
                             case 2:
+                            if(campeonato.size() == 0){
+                                System.out.println("No se tiene registro de un campeonato, por favor inicia uno");
+                                break;
+                            }
+                            else{
+
                                 //Resultados de las carreras
                                 System.out.println("\nResultados de las carreras: \n");
                                 
@@ -218,9 +231,16 @@ public class EscuderíaPuma {
                                         + campeonato.get(i).posiciones.get(j).puntos);
                                     }
                                 }
+                            }
                             break;
 
                             case 3:
+                            if(campeonato.size() == 0){
+                                System.out.println("No se tiene registro de un campeonato, por favor inicia uno");
+                                break;
+                            }
+                            else{
+                                int j;
                                 posicionesFinales = Simulacion.posicionesFinales(escuderias_f1, carreras_f1, campeonato);
                                 System.out.println("El ganador es el que tiene mas puntos");
                                 for(j=0; j<posicionesFinales.size(); j++){
@@ -230,6 +250,7 @@ public class EscuderíaPuma {
                                     posicionesFinales.get(j).getPuntos());
                                 }
                             break;
+                            }
 
                             case 4:
                                 //Salir
