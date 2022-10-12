@@ -34,7 +34,6 @@ public class EscuderíaPuma {
             System.out.println("\n\t[ Menu del simulador ]");
             System.out.println("(1) - Crear un campeonato");
             System.out.println("(2) - Consultar carreras anteriores");
-            System.out.println("(3) - Finalizar campeonato");
             System.out.println("(4) - Ver info. General (Corredores, Escuderias, Carreras y Campeonatos)");
             System.out.println("(5) - Salir");
             System.out.print("\nSeleecione una opcion: ");
@@ -180,13 +179,8 @@ public class EscuderíaPuma {
                     
 
                 break;
-
-                case 3:
-                    //Finalizar campeonato
-                    //PENDIENTE
-                break;
                 
-                case 4:
+                case 3:
                     //Menu secundario
                     while(!salirinfo){
                         System.out.println("\n\t[ Ver info. General ]");
@@ -260,7 +254,7 @@ public class EscuderíaPuma {
                     }
                 break;
 
-                case 5:
+                case 4:
                     //Salir
                     System.out.println("\n\tHasta luego :)");
                     salir = true;
