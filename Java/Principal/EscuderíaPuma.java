@@ -1,6 +1,4 @@
-import java.security.Key;
 import java.util.*;
-import javax.security.auth.login.CredentialException;
 
 public class EscuderíaPuma {
     public static void main(String[] args){
@@ -11,6 +9,7 @@ public class EscuderíaPuma {
         LinkedList<Escuderias> escuderias_f1 = new LinkedList<>();
         HashMap<Integer, Carreras> carreras_f1 = new HashMap<Integer, Carreras>();
         LinkedList<Posiciones> posicion = new LinkedList<Posiciones>();
+        LinkedList<Posiciones> posicionesFinales =new LinkedList<Posiciones>();
         LinkedList<CorrerCarrera> campeonato = new LinkedList<CorrerCarrera>();
         
         //Se inician las pistas, escuderias y carreras establecidas
@@ -93,6 +92,14 @@ public class EscuderíaPuma {
                                         avanzar_carrera = sc.nextInt();
                                     }
                                     avanzar_carrera=0;
+                                }
+                                posicionesFinales = Simulacion.posicionesFinales(escuderias_f1, carreras_f1, campeonato);
+                                System.out.println("El ganador es el que tiene mas puntos");
+                                for(j=0; j<posicionesFinales.size(); j++){
+                                    System.out.println(posicionesFinales.get(j).getPosicion() + " " +
+                                    posicionesFinales.get(j).corredores.getNombre()+ " "+ 
+                                    posicionesFinales.get(j).corredores.getApellido()+ " "+ 
+                                    posicionesFinales.get(j).getPuntos());
                                 }
                             break;
 
@@ -214,7 +221,14 @@ public class EscuderíaPuma {
                             break;
 
                             case 3:
-                                //Posiciones del campeonato
+                                posicionesFinales = Simulacion.posicionesFinales(escuderias_f1, carreras_f1, campeonato);
+                                System.out.println("El ganador es el que tiene mas puntos");
+                                for(j=0; j<posicionesFinales.size(); j++){
+                                    System.out.println(posicionesFinales.get(j).getPosicion() + " " +
+                                    posicionesFinales.get(j).corredores.getNombre()+ " "+ 
+                                    posicionesFinales.get(j).corredores.getApellido()+ " "+ 
+                                    posicionesFinales.get(j).getPuntos());
+                                }
                             break;
 
                             case 4:

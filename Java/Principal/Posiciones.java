@@ -1,14 +1,14 @@
 public class Posiciones {
     //Atributos
-    Integer posicion;
+    Integer posicion=0;
     Corredores corredores;
-    Integer puntos;
+    Integer puntos=0;
 
     //Constructor
     public Posiciones(Integer posicion, Corredores corredores, Integer puntos){
         this.posicion = posicion;
         this.corredores = corredores;
-        this.puntos = puntos;
+        this.puntos += puntos;
     }  
 
     //Getters
@@ -34,6 +34,6 @@ public class Posiciones {
     }
 
     public void setPuntos(Integer puntos){
-        this.puntos = puntos;
+        this.puntos += puntos;
     }
 }

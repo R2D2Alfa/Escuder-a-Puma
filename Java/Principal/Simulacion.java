@@ -96,4 +96,57 @@ public class Simulacion {
         }
         return posiciones;
     }
+
+    public static LinkedList<Posiciones> posicionesFinales(LinkedList<Escuderias> escuderias_f1, HashMap<Integer, Carreras> carreras_f1, LinkedList<CorrerCarrera> campeonato){
+        int i, j, k, a;
+        LinkedList<Posiciones> posicionesFinales = new LinkedList<Posiciones>(); 
+        HashMap<Integer, Corredores> posicion = new HashMap<Integer, Corredores>();
+        LinkedList<Corredores> corredores = new LinkedList<Corredores>();
+        LinkedList<Posiciones> posicionesFinalesOrdenados = new LinkedList<Posiciones>(); 
+
+        for(i=0; i<escuderias_f1.size();i++){
+            for(j=0; j<2; j++){
+                corredores.add(escuderias_f1.get(i).corredores.get(j));
+            }
+        }
+
+        for(i=0; i<corredores.size(); i++){
+            Posiciones lugar = new Posiciones(i+1, corredores.get(i), 0);
+            posicionesFinales.add(lugar);
+        }
+        
+        for(i=0; i<carreras_f1.size(); i++){
+            for(j=0; j<corredores.size(); j++){
+                for(k = 0; k<corredores.size(); k++){
+                    if(posicionesFinales.get(k).corredores.getApellido().equals(campeonato.get(i).posiciones.get(j).corredores.getApellido())){
+                        posicionesFinales.get(k).setPuntos(campeonato.get(i).posiciones.get(j).puntos);
+                    }
+                }
+                
+            }
+        }
+
+        TreeMap<Integer, Corredores> ordenarPosiciones = new TreeMap<Integer, Corredores>();
+
+        for(i=0; i<posicionesFinales.size(); i++){
+            ordenarPosiciones.put(posicionesFinales.get(i).puntos, posicionesFinales.get(i).corredores);
+        }
+
+        Integer[] array = new Integer[ordenarPosiciones.size()];
+        
+        Set<Integer> keys = ordenarPosiciones.keySet();
+        array = keys.toArray(array);
+        
+
+        for(a = 0; a<ordenarPosiciones.size(); a++){
+            posicion.put(array[a], ordenarPosiciones.get(array[a]));
+        }
+
+        for(i=0; i<posicion.size(); i++){
+            Posiciones lugar1 = new Posiciones(i+1, posicion.get(array[i]), array[i]);
+            posicionesFinalesOrdenados.add(lugar1);
+        }
+
+        return posicionesFinalesOrdenados;
+    }
 }
